@@ -1,0 +1,52 @@
+% GRAVEYARD - Content removed from main document for later use
+
+\section{Note on Baseline Demographic Controls}
+\label{app:mechanical}
+
+The regression controls for 2010 shares of 55--64 and 65+ populations. Is there a mechanical bias?
+
+\textbf{No.} The dependent variable is the migration \textit{rate} (migrants as \% of expected population), not the raw count. If there is zero actual migration, Net Migrants = 0 and Rate = 0\%, regardless of baseline size. The baseline shares enter the denominator, but this is not a bias---it simply expresses migration relative to the relevant population, which is the correct scaling. Controlling for baseline shares asks: conditional on starting demographics, what else predicts the migration rate?
+
+\subsection{What Would Produce a Negative Correlation on the 55--64 Share Control?}
+
+Suppose we observe a \textit{negative} coefficient on the 2010 share of 55--64 year-olds. What could explain this?
+
+\textbf{Example 1: ``Pre-retirement'' counties.} Counties with high 55--64 shares may be places where people live during their working years but leave upon retirement. If a county has many 55--64 year-olds in 2010 because it offers good employment, those residents may depart for sunbelt destinations once they retire. The expected 65+ population (based on aging-in) would be large, but actual 65+ population lower due to out-migration---yielding a negative net migration rate.
+
+\textbf{Example 2: Crowding or saturation effects.} Places already ``full'' of near-seniors may be less attractive to incoming senior migrants. Housing stock may be occupied, senior-oriented services at capacity, or the community may already have the character of a retirement destination without room to absorb more. High 55--64 share signals a place about to have many seniors, potentially deterring additional in-migrants.
+
+\textbf{Example 3: Mean reversion.} Counties with unusually high 55--64 shares in 2010 may have experienced a positive shock to that cohort's population that does not persist. If the 55--64 share is measured with noise or reflects transitory factors, regression to the mean would produce negative net migration as subsequent cohorts revert to normal levels.
+
+\subsection{Is the Control Specification Correct?}
+
+\textbf{Bad control?} If baseline age shares are themselves \textit{caused by} earlier migration patterns that also affect 2010--2020 migration, then controlling for them could induce collider bias. For example, if ``retiree desirability'' drove migration in the 1990s--2000s (producing high 2010 elderly shares) and also drives 2010--2020 migration, then controlling for 2010 demographics forces comparisons between counties that reached similar demographic compositions for different reasons---potentially biasing other coefficients.
+
+\textbf{Robustness check:} Run specifications (i) without the 55--64 and 65+ controls, (ii) with only one of the two, and (iii) with both. If substantive conclusions about other variables (taxes, amenities, healthcare) are robust across specifications, the concern is mitigated.
+
+\section{Data Template: Removed Parts A and C}
+
+\begin{table}[htbp!]
+\centering
+\caption{Part A: Baseline Property Tax Structure}
+\label{tab:baseline_comparison}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Field} & \textbf{New York City} & \textbf{Chicago (Cook County)} \\
+\midrule
+Representative address & Class 1 residential, Manhattan & Single-family, City of Chicago \\
+Taxing entities & NYC (unified) & Cook County, Chicago, CPS, + special districts \\
+Statutory tax rate & 20.085\% of AV & $\approx$7\% of EAV (varies by tax code) \\
+Assessment ratio & 6\% of market value & 10\% of market value \\
+Effective rate (\% of MV) & $\approx$1.2\% & $\approx$2.1\% (Chicago avg.) \\
+School share of levy & TBD & $\approx$51\% (CPS) \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} NYC data from NYC Dept.\ of Finance. Chicago data from Cook County Assessor. AV = assessed value, EAV = equalized assessed value, MV = market value. Chicago effective rate varies substantially by location due to overlapping tax codes.
+\end{table}
+
+\paragraph{Part C: Computed output.} Once Parts A and B are complete, the tax bill for a reference senior (age 70, \$50,000 income, \$300,000 home) can be computed. The key output is \textit{tax savings}: the difference between the baseline tax and the senior's actual tax, in dollars and as a percentage of baseline.

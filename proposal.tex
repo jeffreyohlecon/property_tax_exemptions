@@ -1,0 +1,297 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{indentfirst}
+\usepackage{natbib,subfig}
+\setcitestyle{maxcitenames=10, maxbibnames=10}
+\usepackage{enumitem}
+\usepackage{gensymb}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{fancyhdr}
+\usepackage{bbding}
+\usepackage{pdfpages}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=black, filecolor=black, urlcolor=blue]{hyperref}
+
+% At the beginning of your document
+\usepackage{xstring}
+
+
+\bibliographystyle{apalike}
+\onehalfspacing
+\title{Memo: Prof. Gottlieb meeting}
+\author{Jeffrey Ohl}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Modeling the Amenity Value of Medical Access and its Impact on  Housing Markets}
+
+ The DGLM paper we discussed focuses on market size and agglomeration. But rent acts as a congestion force: at some point agglomerating more and more medical services in a place may run into land constraints as more people want to move there.  Furthermore, these effects on rents may have distributional implications: renters do worse than home-owners when market access improves, also else equal.
+ % from a place having good medical care (this holds for any increase in not unique to this, true about any home price increase). \\
+\textcolor{blue}{Uncertainty: are the effects of medical access on rent large enough to be first-order? }% explicitly modeling this differently from traditional amenities would affect any results. It would endogenously change market size}
+
+The specific example I have in my mind is retirees choosing to locate somewhere because of its superior healthcare amenities, and pushing up rents for local residents. 
+
+
+
+
+\textbf{Stylized logic.}  Households maximize utility
+\[
+U_{j}=w_{j}-R_{j}+A_{j},
+\]
+where $w_{j}$ is local wage, $R_{j}$ the rent for housing, and $A_{j}$ a composite amenity.  
+Free mobility equalizes $U_{j}$ across locations, so any exogenous rise in $A_{j}$—including an improvement in medical access—raises \emph{demand} for the place. Either $R_{j}$ rises or $w_{j}$ falls until utility is equalized.
+%ty, providers directly raises expected utility from consuming health care.
+
+\medskip\noindent
+%\textbf{First-order implications}
+%\begin{enumerate}[label=(\roman*)]
+    %\item \emph{Rent capitalization.}  A positive $\Delta\Phi_{j}$ will, ceteris paribus, be bid into higher $R_{j}$—exactly as for parks or climate, this will be in proportion to the local supply elasticity $\eta$, and budget share on rents, $\gamma$.  %Back-of-envelope: with housing-budget share $\gamma$ and supply elasticity $\eta$, resident welfare retains only $(1+\gamma\eta)^{-1}$ of the gross gain. \textcolor{red}{???} Subsidies that lift $\Phi_{j}$ redistribute some surplus toward landowners unless housing supply is very elastic.
+    %\item \emph{Migration sorting.}  Regions with large hospitals should attract households that place high value on health quality (older, higher-risk, insured), mirroring sorting on school quality.
+   % \item \emph{Policy incidence.}  
+%\end{enumerate}
+
+\textit{Uncertainty : Do we learn anything by breaking out medical access as a separate amenity?}
+\textbf{Caveats.}
+\begin{itemize}
+    \item How to integrate this with the paper's original point that healthcare can be traded?  The degree to which medical services are consumed by non-locals will influence how much an exogenous gain in medical access will show up in rents (in the extreme example of 0 trade costs, they shouldn't show up in rents at all).
+    \item None of this document will consider the demand shock from healthcare providers themselves demanding housing.   %But, this would only dampen, not eliminate the effect . %there is a literature that traditional tourism leads to rent increasing (e.g. Almagro and Domínguez-Iino, 2024, ECMA) .% Dingel--Gottlieb’s travel frictions $\rho_{ji}$ already capture this; treating $\Phi_{j}$ as a pure place amenity overstates rent effects if travel costs are low.
+   % \item \emph{Insurance wedges.}  Consumption price is heavily mediated by insurance networks; a household may not value proximity to a premier hospital if its insurer does not cover that facility.  $A_{j}$ therefore varies across insurers and over time.
+    %\item \emph{Congestion and quality response.}  Extra residents raise demand for doctors, which feeds back into $\delta_{i}$ and $\rho_{ji}$.  The amenity is partly \emph{endogenous}; unlike climate, it can improve (more doctors move in) or deteriorate (longer wait times).
+    %\item \emph{Necessity vs luxury.}  Basic access (primary care) behaves like a necessity: income elasticity $<1$.  Amenity-style treatment is most defensible for \emph{quality-intensive} services (oncology, cardiac surgery) whose demand is income-elastic.
+  
+\end{itemize}
+
+\medskip\noindent
+
+\subsection*{Policy implications}
+
+\begin{enumerate}[label=(\roman*), leftmargin=*]
+    \item \textbf{Incidence of travel voucher subsidies.}  
+          Improved market access is now partially captured by landlords.  
+      %    \emph{Cost-effectiveness falls} relative to the baseline model.
+    %\item \textbf{Travel vouchers / tele-medicine subsidies.}  
+          %These might be more favored by local renters in a medical hub, if it means that % also be improve effective access \emph{without} inducing migration; rents barely move, so \emph{net welfare gains rise} relative to place-based subsidies.
+    \item \textbf{Housing-supply policy as a complement.}  
+          Loosening land-use constraints by increasing supply elasticities in medical hubs preserves more patient surplus for renters.  
+          %Inclusionary zoning or accelerated permitting around DMC could offset the ``leakage''
+    \item \textbf{Cross-Sectional Implications.}  
+          Boosting market access in small markets, where supply is more elastic, might seem more attractive once we consider effects on the housing market, because less of the gain is capitalized into rents.
+\end{enumerate}
+
+%\textbf{More Precision}: 
+%\textcolor{red}{Note this is basically viewing medical services as amenities}
+%Note - this is primarily from people \textit{moving there} to get access to the medical services - in any urban/spatial model, improved amenities push up rents. 
+%Perhaps connect to Couture Handbury Gaubert Hurst - are these medical services something which people have non homothetic preferences over?  
+%Mini-lit review on income elasticity of medical spending:
+
+
+%\textbf{General lesson.}  If one premier hospital can move a small city’s housing market this much, analogous effects likely lurk around Penn Medicine (University City protests), Cleveland Clinic (Politico’s \$1 billion tax-exempt land), and NYC’s Cornell–Weill corridor.  The model’s new housing block turns those anecdotes into testable predictions.
+
+
+\section{Literature}
+Most urban/spatial papers take amenities as exogenous residuals to rationalize populations. A few papers discuss how amenities endogenously form in response to local demand, especially in response to changes in the income distribution of the neighborhood. Key papers include Diamond, 2016, Couture, Gaubert, Handbury, and Hurst, 2023, and Almagro and Domínguez-Iino, 2024. 
+
+There are also a few applied-micro papers that look at how various amenities are capitalized into house prices, such as 
+
+\begin{itemize}
+\item    Chay and Greenstone, 2005, on air quality (variation: Clean Air Act had different levels of bindingness depending on pre-existing air quality)
+\item Greenstone and Gallagher, 2008 examine hazardous waste (variation: discontinuity in selection for Superfund sites)
+\item  Linden and Rockoff, 2008, examine impacts of crime risk on local property values.  (variation: Megan's Law)
+
+\item Black, 1999 examines school quality. (boundary discontinuity design)
+\item Alexander and Richards, 2023, in the JPubE, discuss the effect of rural hospital closures on housing prices . 
+\end{itemize}
+
+
+
+\section{Next steps to know if this is first-order and worth studying}
+
+\begin{enumerate}
+\item Anecdotal evidence: do people think about healthcare access when choosing where to live? 
+\begin{itemize}
+    \item The popular press, e.g. the US News and World Report, often emphasizes healthcare as a key choice in where to retire. 
+\item When people move somewhere for healthcare reasons, do they primarily want to be nearby for emergencies, or for monthly doctor visits? 
+\item How ``local'' is this amenity? Should I think of people as moving to be within a 1-hour drive of the Mayo Clinic, or wanting to be walking distance?
+\end{itemize}
+\item Look for variation - how to get credible estimates of the elasticity of rent to healthcare market access.
+%\item 
+%\item Do more literature review /exploration on housing market effects of hospitals. (tricky - super endogenous - hedonic regressions could work.) In a 
+\end{enumerate}
+
+
+
+
+
+%Bridge to endogenous‐amenity literature. Lets us speak the same language as Couture et al. about luxury amenities, but with a medical-care twist that few urban papers tackle.
+\newpage
+
+\section{Theory}
+This simplifies to a world where residents only care about medical access and housing costs. We must assume that wages are homogeneous across space to motivate such a model - perhaps not unreasonable for a 65+ population relying on assets/social security. \\
+
+The core causal chain is:
+$$ \Phi_j \uparrow \implies N_j \uparrow \implies Rent_j \uparrow \implies \text{Net change in } utility $$
+This contrasts with models that treat population ($N_j$) and rents ($Rent_j$) as exogenous.
+
+\subsection{Model Components and Assumptions}
+
+
+
+We define the following variables and relationships:
+
+\begin{itemize}
+    \item $V_j$: The utility level in location $j$. Utility depends on market access and rents. 
+    \item $\Phi_j$: Market access in location $j$ (e.g., medical-access quality). This is the variable experiencing an exogenous shock, resulting in a change $d(\ln \Phi_j)$, which is a proportional change in $\Phi_j$.
+    \item $Rent_j$: Rent in location $j$.
+    \item $N_j$: Population in location $j$.
+    \item $\gamma$ : A parameter weighting the disutility from log rents relative to log medical access
+    \item $\eta$ : The elasticity of rents with respect to population, defined as $\eta = d\ln Rent_j / d\ln N_j$. This measures the percentage change in rent for a 1\% change in population. 
+    \item $\epsilon_{\text{mig}}$ : The semi-elasticity of local population ($N_j$) with respect to the utility level $V_j$. The reduced-form migration equation is $d(\ln N_j) = \epsilon_{\text{mig}} \, dV_j$, i.e.  $\epsilon_{\text{mig}} = \frac{d\ln N_j}{dV_j}$. This is a semi-elasticity because it measures the percentage change in population $N_j$ resulting from a one-unit absolute change in the utility level $V_j$. 
+\end{itemize}
+
+The model is based on the following key equations:
+
+\begin{enumerate}
+    \item \textbf{Utility:} The resident's utility is given by:
+    \begin{equation}
+        V_j = \ln \Phi_j - \gamma \ln Rent_j \label{eq:utility}
+    \end{equation}
+
+    \item \textbf{Housing Market:} Rents are determined by population, with $\eta$ as the elasticity of rents with respect to population:
+    \begin{equation}
+        \ln Rent_j = A + \eta \ln N_j \label{eq:rent}
+    \end{equation}
+    where $A$ is a constant. This implies:
+    \begin{equation}
+        d(\ln Rent_j) = \eta \, d(\ln N_j) \label{eq:d_rent}
+    \end{equation}
+
+    \item \textbf{Migration:} The percentage change in population, $d(\ln N_j)$, in response to absolute changes in the utility level $dV_j$.
+    \begin{equation}
+        d(\ln N_j) = \epsilon_{\text{mig}} \, dV_j \label{eq:migration}
+    \end{equation}
+    Here, $d(\ln N_j)$ is the percentage change in population, and $dV_j$ is the absolute change in the utility level $V_j$. Thus, $\epsilon_{\text{mig}} = \frac{d(\ln N_j)}{dV_j}$ is the semi-elasticity of population with respect to the utility level $V_j$.
+\end{enumerate}
+
+We want to find the total absolute change in utility level, $dV_j$, from an exogenous change in local quality, $d(\ln \Phi_j)$. We start by taking the total differential of the utility function \eqref{eq:utility}:
+\begin{equation}
+    dV_j = d(\ln \Phi_j) - \gamma \, d(\ln Rent_j) \label{eq:dV_step1}
+\end{equation}
+Substitute the rent determination relationship \eqref{eq:d_rent} into \eqref{eq:dV_step1}:
+\begin{equation}
+    dV_j = d(\ln \Phi_j) - \gamma \eta \, d(\ln N_j) \label{eq:dV_step2}
+\end{equation}
+Substitute the migration model \eqref{eq:migration} into \eqref{eq:dV_step2}. This links the change in population back to the (endogenous) change in the utility level:
+\begin{equation}
+    dV_j = d(\ln \Phi_j) - \gamma \eta \left( \epsilon_{\text{mig}} \, dV_j \right) \label{eq:dV_step3}
+\end{equation}
+
+This implies
+\begin{equation}
+ dV_j = \frac{d(\ln \Phi_j)}{1 + \gamma\eta\epsilon_{\text{mig}}} \label{eq:final_dV}
+\end{equation}
+
+
+\subsubsection*{Quantification / Magnitudes}
+
+\textcolor{blue}{I realize $\epsilon_{\text{mig}}$ doesn't have a very intuitive interpretation right now. The overall logic I hope to communicate is that the importance of the proposed mechanism depends on the product of the below three parameters. }  \\
+We can consider some real-world values for the parameters:
+
+\begin{itemize}
+    \item $\eta = 1.20$: The elasticity of rents with respect to population. This corresponds to an elasticity of housing supply of $1/\eta \approx 0.83$. Similar to Boston's level in Saiz, 2010. 
+    \item $\epsilon_{\text{mig}} = 1.5$: A 0.01 unit increase in utility increases population by 1.5\%.  %The semi-elasticity of local population ($N_j$) with respect to the utility level $V_j$. A value of 1.5 means that a 0.01-unit absolute increase in the utility level $V_j$ (e.g., $V_j$ changes from 2.0 to 3.0) would lead to a $1.5 \times 100\% = 150\%$ increase in population $N_j$. %The interpretation and plausibility of this value are sensitive to the typical range and magnitude of $V_j$ and $dV_j$ in the model, given $V_j$'s definition.
+    \item $\gamma$ = 0.10: The relative weight on log housing costs versus log medical access in the  utility function.
+\end{itemize}
+
+The product $\gamma\eta\epsilon_{\text{mig}}$ is:
+$$ \gamma\eta\epsilon_{\text{mig}} = 0.10 \times 1.20 \times 1.5 = 0.10 \times 1.8 = 0.18 $$
+
+So, the absolute change in the utility level is:
+$$ dV_j = \frac{d(\ln \Phi_j)}{1 + 0.18} = \frac{d(\ln \Phi_j)}{1.18} \approx 0.847 \, d(\ln \Phi_j) $$
+
+This means that a 1\% change in $\Phi_j$, translates into a utility change of only $0.847 \times d(\ln \Phi_j)$, with the rest being captured by landlords. 
+
+
+\subsection*{Case study: Destination Medical Center}
+
+\textbf{Context.}  In 2013, MN  launched the 20-year \$5.6 billion \emph{Destination Medical Center} (DMC), the largest economic‐development project in Minnesota’s history.  DMC hopes to add 30,000 jobs to  Minnesota, and help make Rochester a ``global medical destination center.''\footnote{\href{https://dmc.mn/what-is-dmc/}{Source}}. DMC is a public-private partnership, with $\approx$ 90\% of the funding from the Mayo Clinic, and the remainder from the  city (Rochester), county (Olmsted) and state. 
+
+Popular press warns the DMC hiring wave will \textit{“exacerbate Rochester’s pre-existing housing shortage.”} %\href{https://finance-commerce.com/2025/01/rochester-housing-boom-shortage/}{Source}
+\textit{``locals fret over housing shortage, high rents and expected population boom'' } \\
+
+\textit{Thousands of new workers are set to arrive over the next few years thanks to a multibillion-dollar Mayo Clinic expansion. But Rochester isn’t building nearly enough housing to keep up with current growth.}\footnote{\href{https://www.startribune.com/rochester-has-a-housing-problem-mayo-clinic-may-be-the-answer/600344687}{Source}}
+ \\
+\textcolor{blue}{Note, the story here is slightly different from the mechanism that I propose. Here, the demand for housing is increasing due to an increase of employment in the medical sector, not due to people migrating there to get medical care. }
+%\textbf{What has already happened.}
+%\begin{itemize}[leftmargin=*]
+%   \item \textit{Rent spikes.}  %Local rents rose 17 \% between 2021–24, outpacing the Twin Cities and eroding the city’s historic affordability advantage. 
+%:contentReference[oaicite:1]{index=1}
+    %\item \textit{Displacement pressure.}  Non-profit housing providers report wait-lists tripling; senior and Section 8 tenants are already being priced out of central neighbourhoods. % A Star Tribune feature quotes residents who “can see Mayo from their window—but can’t afford to stay.”:contentReference[oaicite:2]{index=2}
+
+
+%\textbf{Why the existing model misses it.}  
+%The trade in medical services paper treats \(N_j\) and rents \(Rent_j\) as exogenous.  In Rochester the shock operates precisely through the channel we abstract away from: medical-access quality (\(\Phi_j\uparrow\)) \(\rightarrow\) in-migration (\(N_j\uparrow\)) \(\rightarrow\) rents (\(H_j\uparrow\)) \(\rightarrow\) welfare re-sorting.  Ignoring the last two arrows means we would label the DMC a pure patient surplus gain when, on the ground, some  that surplus is being transferred to downtown landlords. \\
+
+
+
+
+%\textbf{Research pay-off.}  
+%Plugging an urban‐equilibrium block into the model lets us \emph{quantify} that transfer.  \textcolor{red}{not sure about this. Back-of-the-envelope: with a housing supply elasticity \(\eta\!=\!0.6\) and housing share \(\gamma\!=\!0.3\), roughly \(1/(1+\gamma\eta)\!\approx\!83\%\) of the gross welfare gain survives after rent pass-through. Running the Rochester counterfactual in the augmented model would produce a headline result—“40 \% of the patient surplus is absorbed by higher rents”
+%} 
+%—that immediately resonates with policymakers debating inclusionary zoning around the DMC.
+
+
+%See end of document for a quick back of the envelope for how to maybe think about magnitudes. 
+
+%\textcolor{red}{not sure... }
+%Plausible U.S. parameters ($\gamma\approx0.3$ housing budget share,  
+%$\eta\approx0.6$ supply elasticity) imply
+%\[
+%\frac{1}{1+\gamma\eta}\;\approx\;0.85,
+%\]
+%i.e.\ \emph{15 \% of the gross patient surplus is absorbed by higher rents}.  
+%If housing supply is tighter ($\eta\!<\!0.3$) the leakage exceeds 25 \%.
+
+\newpage
+\section{Notes from Feedback on Referee Report (less well-developed)}
+
+Initial broad proposal in referee report writeup: ``Spillovers - more involvement by PE firms might have GE effects beyond those nearby in
+geography. It’s not clear the out-of-market restriction for controls fixes this. Including some
+simple facts about how far people travel for healthcare might alleviate my concerns here. Text
+analysis on large public hospitals’ earning calls, and whether they mentioned this acquisition
+could also be evidence against spillovers.''
+
+
+
+\textit{Narrower Research Question}: How did competitors respond to the PE acquisition of HCA?\\
+\textit{Broader question}: How do firms respond to PE involvement in their sector, in general?  \\
+\textit{Data}: Earnings calls from publicly traded hospitals. I could assemble descriptives on how firms discussed this acquisition. 
+
+Below are a few of the large publicly traded hospital systems in the US.
+ Seeking Alpha has earnings calls back to 2007 for most of these. (\$300 to purchase all of them)
+\begin{itemize}
+\item Tenet Healthcare %(65 hospitals)
+\item Community Health Systems %85 hospitals as of 2021, 200 at its peak)
+\item Universal Health Services %(29 acute care hospitals, over 300 inpatient behavioral health facilities). 
+\item Encompass Health %(\href{https://www.roic.ai/quote/EHC/transcripts/2007/4}{Example earnings call})
+\end{itemize}
+%Literature: 
+%\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC10699936/}{JAMA article on the Growing Influence of Private Equity in Health Care Delivery}
+%Report on large publicly traded hospital owners \href{https://aspe.hhs.gov/sites/default/files/documents/582de65f285646af741e14f82b6df1f6/hospital-ownership-data-brief.pdf}{link}.
+
+
+\textbf{Uncertainty:} I am not sure I have a strong prior on the direction of effects, or that profit maximization predicts a major response to a competitor being acquired by a PE firm. 
+
+\end{document}

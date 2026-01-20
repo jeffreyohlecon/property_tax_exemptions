@@ -1,0 +1,240 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{adjustbox} 
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{indentfirst}
+\usepackage{natbib,subfig}
+\setcitestyle{maxcitenames=10, maxbibnames=10}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+
+\usepackage{pdfpages}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=black, filecolor=black, urlcolor=blue]{hyperref}
+
+
+
+\bibliographystyle{apalike}
+\onehalfspacing
+\title{Determinants and Fiscal Effects of Senior Migration}
+\author{Jeffrey Ohl}
+\date{December 4, 2025}
+
+
+
+
+\begin{document}
+\maketitle
+\section{Reminder on Topic and To-dos from June Meeting}
+
+The broad topics we were discussing last time: What are the fiscal and welfare effects of older people moving to an area? Are they pushing rents up? Are cities doing things to attract them (and should they be)? What features of a place induce senior migration? 
+
+
+A few specific analyses we discussed over the last two meetings: 
+\begin{itemize}
+\item One measure of access to healthcare, rural hospital closures, did not seem to influence rents, in an event study.
+\item Initial health employment share did not seem to be a significant predictor of changes in share of 65+ in an area (between censuses). However, below, when we use \textit{net migration rates} rather than share changes, healthcare employment share is a significant predictor (see Table~\ref{tab:netmig_regression}). This suggests healthcare matters for where seniors move, even if it doesn't predict compositional changes that also reflect aging-in-place.  
+\item Last time we left off, you suggested pivoting to a local public finance angle:  Are places actually trying to attract elderly people? It seems like they are. Most states have both property tax exemptions and income tax exemptions for the elderly.  See Table \ref{tab:senior_tax_prefs}
+\item A sanity check / back of the envelope you recommended: How much less does a single elderly couple cost a municipality than a family of four? See Table \ref{tab:fiscal_impact}.
+\end{itemize}
+
+\section{Idea overview}
+\begin{enumerate}
+    \item \textbf{Motivation}
+
+    Social Security and Medicare combined total approximately 35\% of federal spending, and where seniors choose to live determines where these dollars flow. Localities are competing for these residents: age-based property tax exemptions are widespread, 41 states exempt Social Security income entirely, and state income tax liabilities for 65+ households are 10--58\% lower than for similar younger households. Collectively, senior tax preferences amount to roughly 7\% of state income tax revenue \citep{BrewerConwayRork2017}. These policies appear to work.
+   \cite{banzhaf2021age} quantifies the effect of Cobb County's 100\% school tax exemption for those 62 and older. The authors estimate this policy increased the county's senior homeowner population by 32–54\%.
+    
+
+    These subsidies motivate two questions. 
+    
+    First, who bears the cost of these age-based exemptions? If exemptions are offset by higher rates on non-seniors, the subsidy is a direct transfer from younger to older residents. If senior in-migration expands the tax base enough to lower rates for everyone, the policy may be self-financing for the jurisdiction that adopts it (though not in aggregate).
+    
+    Second, does competition among jurisdictions push these subsidies above whatever rate is optimal? Many senior tax preferences date to an era when the elderly were among the most economically vulnerable Americans. In 1966, elderly poverty was 28.5\%, nearly double the national average. Today it is approximately 10\%, below the rate for children and working-age adults, and the 55+ population holds a majority of US household net worth. For a wealthy, long-tenured homeowner, a tax exemption worth several thousand dollars is unlikely to drive a relocation decision. Competitive over-provision is especially costly if exemptions primarily accrue to such inframarginal seniors, since jurisdictions sacrifice revenue without affecting location decisions.
+
+    I hope to estimate what happens to tax rates on non-seniors when jurisdictions adopt senior exemptions, a first step toward answering questions about the incidence of these policies. 
+    \item \textbf{Related literature}
+    
+    
+    First, there is a literature specifically on senior migration: \citet{BadillaMarotoFaberLevyMunoz2024} establish that senior migration raises French house prices (by approximately 1\%) and tax revenues (property tax revenues by 1.3\%, land tax revenues by 2.8\%). \citet{banzhaf2021age} show that age-based property tax exemptions induce substantial senior sorting, but do not trace through the fiscal consequences for non-exempt taxpayers. 
+
+
+    The US context differs from France in ways that matter for welfare: US localities rely heavily on property taxes to fund K-12 education, creating a fiscal link between household composition and school spending. Seniors who pay property taxes represent a potential subsidy to families---but only if localities do not compete away this surplus through age-based exemptions.
+
+    Second, this idea connects to the literature on tax competition, such as \citet{SlatteryZidar2020}, who document that state and local governments spend at least \$30 billion annually competing for firms through discretionary tax incentives. I hope to test whether similar dynamics apply to competition for seniors.
+
+
+    Third, there is a literature from the late 90s-early 2000s studying the association between elderly share and education spending. \citet{Poterba1997} estimates an elasticity of per-child education spending with respect to elderly population share of approximately $-0.25$ at the state level. \citet{LaddMurray2001} find no statistically significant effect when looking at the county level. However, \citet{HarrisEvansSchwab2001} show that at the district level, the elderly have a smaller negative effect on education spending, while the state-level effect remains negative. These papers all study elderly population associations, not elderly tax breaks. The latter is my focus.
+
+    \end{enumerate}
+\section{Why would a municipality want to attract older people? }
+Table~\ref{tab:fiscal_impact} provides illustrative calculations of the fiscal impacts of a senior household vs. a younger family for a \textbf{municipality}, assuming no senior tax exemptions. The main takeaway from this table is that education spending is large and mainly financed by local governments, so the number of children in a household is first-order for a household's fiscal impact on a municipality. This table excludes income taxes, since most municipalities do not impose an income tax.
+
+Table \ref{tab:senior_tax_prefs} shows that \textbf{states} are providing senior-specific income tax relief, partially offsetting the fiscal benefits of senior migration.  Many municipalities also offer property tax exemptions for seniors beyond this state-level relief.
+\begin{table}[htbp!]
+    \centering
+    \small
+    \begin{tabular}{|l|r|r|r|}
+    \hline
+    \textbf{Line Item} & \textbf{Per Capita/Pupil} & \textbf{70-Yr Couple} & \textbf{Family of 4} \\ \hline
+    \multicolumn{4}{|c|}{\textit{Assumptions}} \\ \hline
+    Household Composition & --- & 2 Adults (65+) & 2 Adults, 2 Children \\ \hline
+    Assessed Home Value & --- & \$350,000 & \$350,000 \\ \hline
+    \multicolumn{4}{|c|}{\textit{Revenue Generated}} \\ \hline
+    Property Tax (2\% effective) & --- & \$7,000 & \$7,000 \\ \hline
+    Sales Tax \& Other & \$1,996/capita & \$3,992 & \$7,984 \\ \hline
+    \textbf{Total Revenue} & --- & \textbf{\$10,992} & \textbf{\$14,984} \\ \hline
+    \multicolumn{4}{|c|}{\textit{Marginal Cost of Services}} \\ \hline
+    Public Education (K--12) & \$15,243/pupil & \$0 & \$30,486 \\ \hline
+    Other Local Services & \$3,383/capita & \$6,766 & \$13,532 \\ \hline
+    \textbf{Total Marginal Cost} & --- & \textbf{\$6,766} & \textbf{\$44,018} \\ \hline
+    \multicolumn{4}{|c|}{\textit{Net Fiscal Impact}} \\ \hline
+    \textbf{Surplus / (Deficit)} & --- & \textbf{+\$4,226} & \textbf{(\$29,034)} \\ \hline
+    \end{tabular}
+    \caption{Illustrative marginal fiscal impact of new residents on local government. \textit{Revenue}: Property tax assumes 2\% effective rate on assessed value. Sales tax \& other includes local sales taxes, charges, and fees (\$1,996/capita = \$662B total non-property local own-source revenue $\div$ 331.9M population). \textit{Expenditure}: Education calculated as local direct expenditure on elementary and secondary education (\$753B) divided by public K--12 enrollment (49.4M students). Other local services calculated as local direct general expenditure excluding education (\$1,123B) divided by population, covering police, fire, roads, sewerage, parks, courts, and administration. Source: U.S. Census Bureau, 2021 Annual Survey of State and Local Government Finances; population from Census Bureau; enrollment from NCES.}
+    \label{tab:fiscal_impact}
+\end{table}
+\begin{table}[htbp]
+    \centering
+    \caption{State Income Tax Preferences for a Senior (Age 65+) with \$50,000 Income in the Ten Most Populous States}
+    \label{tab:senior_tax_prefs}
+    \smallskip
+    \small
+    \textit{Income composition: \$25,000 Social Security + \$15,000 401k/pension withdrawals + \$10,000 other}
+    \vspace{0.5em}
+    
+    \begin{tabular}{l c r r r c}
+    \toprule
+    \textbf{State} & \textbf{Eff. Rate} & \textbf{Tax Due (Non-Sr.)} & \textbf{Savings} & \textbf{Tax Due (Sr.)} & \textbf{Sr. Eff. Rate} \\
+    \midrule
+    CA & 2.7\%  & \$1,350 & \$1,219 & \$131 & 0.3\% \\
+    TX & 0\%    & \$0     & \$0     & \$0   & 0\% \\
+    FL & 0\%    & \$0     & \$0     & \$0   & 0\% \\
+    NY & 4.3\%  & \$2,150 & \$2,070 & \$80  & 0.2\% \\
+    PA & 3.07\% & \$1,535 & \$1,228 & \$307 & 0.6\% \\
+    IL & 4.7\%  & \$2,346 & \$1,980 & \$366 & 0.7\% \\
+    OH & 1.2\%  & \$594   & \$594   & \$0   & 0\% \\
+    GA & 4.2\%  & \$2,086 & \$2,086 & \$0   & 0\% \\
+    NC & 3.4\%  & \$1,676 & \$1,125 & \$551 & 1.1\% \\
+    MI & 3.8\%  & \$1,887 & \$1,700 & \$187 & 0.4\% \\
+    \bottomrule
+    \end{tabular}
+    
+    \vspace{0.5em}
+    \raggedright
+    \footnotesize
+    \textit{Notes:} Effective rates include standard deductions. TX and FL have no income tax. Senior exemptions by state: CA exempts Social Security and provides a \$149 senior tax credit; NY exempts Social Security and up to \$20k in pension/retirement income; PA and IL exempt all retirement income (Social Security, pensions, 401(k), IRA); OH exempts Social Security (remaining income falls in 0\% bracket); GA exempts up to \$65k in retirement income for seniors 65+; NC exempts Social Security only; MI exempts all retirement income. 
+    \end{table}
+\section{Descriptive Patterns: Where are seniors moving?}
+To give a sense of where seniors are moving, Table~\ref{tab:netmig_regression} reports OLS estimates of the \textbf{net migration rate for the 65+ population} over 2010--2020, from \citet{EganRobertson2024}. They estimate net migration via a residual: the population at decade start is aged forward using intercensal births and deaths, then subtracted from the observed population at decade end.
+
+
+{\small
+\[
+\text{Net Migration Rate} = \frac{\text{Net Migrants}_{65+}}{\text{E[Population}_{65+}]} \times 100
+\]}
+
+I focus on net migration rather than changes in 65+ population share because the latter conflates actual relocation with aging-in-place, differential mortality, and outmigration of younger cohorts. All right-hand-side variables are measured at the 2010 baseline; coefficients are standardized. 
+
+\input{figures/netmig_regression_table.tex}
+The coefficient on state income tax rate is not significant. We see that several non-financial considerations matter, however. 
+
+First, healthcare employment share is positively correlated with senior migration. 
+
+
+Second, the weather matters. Seniors moved towards better climates (based on the USDA Natural Amenities Scale), the South and West.
+
+Third, places that had a large elderly share tend to attract more elderly migrants.
+
+
+
+\newpage
+
+
+
+
+\section{Research Design: Do Senior Property Tax Exemptions Lower Rates for Non-Seniors?}
+
+If seniors are fiscal assets for municipalities, a natural question is whether this surplus accrues to seniors themselves (via property tax exemptions) or is passed through to other taxpayers (via lower tax rates or improved services). There is little variation in the income tax relief discussed above; however, there is more time-series variation in property tax exemptions. \citet{banzhaf2021age} provide causal evidence that age-based property tax exemptions induce substantial senior sorting, but do not examine incidence on non-seniors.
+
+\subsection{Research Question}
+What happens to property tax rates on non-exempt properties when jurisdictions adopt senior exemptions? 
+\begin{enumerate}
+    \item \textbf{Rates rise} ($\hat{\beta} > 0$): The exemption creates a revenue hole filled by higher rates on non-seniors. 
+    \item \textbf{Rates fall} ($\hat{\beta} < 0$): Senior in-migration generates fiscal surplus that benefits non-seniors.
+    \item \textbf{Rates unchanged} ($\hat{\beta} \approx 0$): Exemptions are set such that seniors are fiscally neutral for jurisdictions. 
+    % surplus is captured elsewhere, or (capitalized into home values, spent on senior services, or dissipated through tax competition).
+\end{enumerate}
+
+\subsection{Data Requirements}
+One useful dataset to test this idea would be the Georgia Property Tax Database from \citet{banzhaf2021age}, which contains:
+\begin{itemize}
+    \item Detailed exemption laws (age thresholds, income limits, exemption amounts) from 1938--2013
+    \item Millage rates (M\&O and bond) for all 159 counties, school districts, and municipalities from 1990--2013
+    \item Staggered adoption timing across jurisdictions
+\end{itemize}
+
+
+\textit{Status: Reached out to Georgia State University for access. I could also build my own dataset and focus on the largest US counties.  }
+
+
+
+\subsection{Empirical Strategy}
+Exploit staggered adoption of age-based exemptions across Georgia jurisdictions:
+\begin{equation}
+    \tau_{jt} = \alpha_j + \gamma_t + \beta \cdot \mathbf{1}[\text{Exemption}_{jt}] + \mathbf{X}_{jt}'\delta + \varepsilon_{jt}
+\end{equation}
+where $\tau_{jt}$ is the millage rate, $\alpha_j$ and $\gamma_t$ are jurisdiction and year fixed effects, and $\mathbf{1}[\text{Exemption}_{jt}]$ indicates exemption adoption.
+
+
+
+\bibliography{references}
+
+\appendix
+
+\input{figures/summary_stats_table.tex}
+
+
+\input{figures/variable_definitions.tex}
+
+
+% \section{Related Literature}
+
+% \subsection{Seniors and Local Public Finance}
+% On the topic of school funding and elderly population, Poterba 1997, found ``that an increase in the fraction of elderly residents in a jurisdiction is associated with a significant reduction in per-child educational spending.''
+
+% Several papers from the early 2000s which Karen Smith Conway is a co-author on also look at senior migration in response to property and estate tax rates.
+
+% \subsection{What We Know from France}
+
+% The most comprehensive evidence on the local economic effects of senior migration comes from \citet{BadillaMarotoFaberLevyMunoz2024}, who study France using a shift-share instrumental variables design. Their findings provide a useful benchmark for what we might expect in the US context. Using predicted pensioner inflows as an instrument for observed migration, they estimate the causal effects of a 1\% increase in the local pensioner stock due to immigration:
+
+% \begin{itemize}
+%     \item \textbf{Population and employment:} Total local employment increases by $\approx$1.5\% and the local population by 1.1\%. The working-age population increases by 0.7\%, suggesting significant knock-on effects beyond the retirees themselves. Notably, the share of the local population that is retired does not increase significantly---new arrivals crowd in other residents rather than displacing them.
+
+%     \item \textbf{Output and income:} Local GDP increases by $\approx$1\% and GDP per capita by $\approx$0.8\%. Average incomes (from tax records) increase by $\approx$1\%. These multiplier effects are consistent with recent estimates of local fiscal multipliers \citep[e.g.,][]{NakamuraSteinsson2014}.
+
+%     \item \textbf{Housing and fiscal revenue:} Local housing prices increase by $\approx$1\%. Property tax revenues increase by $\approx$1.3\% and land tax revenues by $\approx$2.8\%. This price appreciation benefits homeowners but raises housing costs for renters.
+
+%     \item \textbf{Industrial composition:} The manufacturing employment share declines by $\approx$0.6 percentage points, as regions attracting seniors specialize in services relative to manufacturing.
+% \end{itemize}
+
+% \noindent These results establish that senior migration generates substantial positive local economic effects on average. But they leave open the question of \textit{incidence}: who captures the benefits and who bears the costs? The French estimates show that housing prices rise roughly one-for-one with the pensioner inflow, suggesting incumbent homeowners benefit while renters face higher costs. This raises several questions we can address:
+
+% \begin{itemize}
+%     \item \textbf{Incidence across residents:} Do the fiscal benefits (higher tax revenues, no school costs) flow to all residents through lower tax rates or better services, or are they captured by landowners through capitalization? If municipalities respond to senior inflows by cutting tax rates, renters benefit; if they hold rates constant and let land values rise, owners benefit.
+
+%     \item \textbf{Incidence across jurisdictions:} Localities compete for seniors through age-based property tax exemptions and other policies. How much of the fiscal surplus is dissipated through this competition? \citet{banzhaf2021age} show these exemptions induce substantial senior sorting, but do not trace through the fiscal consequences for non-exempt taxpayers.
+% \end{itemize}
+
+
+% \bibliography{references}
+
+\end{document}

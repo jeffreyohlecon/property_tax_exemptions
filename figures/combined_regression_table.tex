@@ -1,0 +1,41 @@
+\begin{table}[htbp!]
+\centering
+\caption{Regression Results: Senior Population Changes (2010--2020)}
+\label{tab:combined_regression}
+\begin{tabular}{lcccccc}
+\hline\hline
+ & \multicolumn{3}{c}{$\Delta$ Share 65+} & \multicolumn{3}{c}{Net Migration Rate 65+} \\
+ & \multicolumn{3}{c}{(2010--2020)} & \multicolumn{3}{c}{(2010--2020)} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+ & Coef. & (SE) & Partial $R^2$ & Coef. & (SE) & Partial $R^2$ \\
+\hline
+\textit{Demographic Variables} & & & & & & \\
+\quad Pop. 55-64 Share (z) & 1.891$^{***}$ & (0.042) & 0.337 & -0.799$^{***}$ & (0.296) & 0.002 \\
+\quad Pop. 65+ Share (z) & -1.139$^{***}$ & (0.046) & 0.104 & 3.748$^{***}$ & (0.321) & 0.035 \\
+\quad Log Total Population (z) & 0.079 & (0.053) & 0.000 & 1.546$^{***}$ & (0.374) & 0.004 \\
+\quad Bottom Quartile Pop. Density & -0.097$^{**}$ & (0.040) & 0.001 & -3.519$^{***}$ & (0.283) & 0.040 \\
+\quad Top Quartile Pop. Density & -0.025 & (0.040) & 0.000 & 0.418 & (0.279) & 0.001 \\
+[3pt]
+\textit{Geographic \& Climate Variables} & & & & & & \\
+\quad Region: South & 0.020 & (0.037) & 0.000 & 2.672$^{***}$ & (0.258) & 0.028 \\
+\quad Region: West & -0.155$^{***}$ & (0.045) & 0.002 & 2.865$^{***}$ & (0.315) & 0.022 \\
+\quad Coastal County & 0.061$^{**}$ & (0.031) & 0.001 & -1.090$^{***}$ & (0.215) & 0.007 \\
+\quad Natural Amenities Scale (z) & 0.262$^{***}$ & (0.045) & 0.006 & 0.642$^{**}$ & (0.317) & 0.001 \\
+[3pt]
+\textit{Economic Variables} & & & & & & \\
+\quad Healthcare Empl. Share (z) & -0.048 & (0.030) & 0.000 & 0.621$^{***}$ & (0.210) & 0.002 \\
+\quad Manufacturing Empl. Share (z) & -0.004 & (0.030) & 0.000 & 0.260 & (0.212) & 0.000 \\
+\quad Median HH Income (\$000s) (z) & -0.184$^{***}$ & (0.046) & 0.003 & 3.932$^{***}$ & (0.324) & 0.038 \\
+\quad Median House Value (\$0000s) (z) & 0.195$^{***}$ & (0.052) & 0.002 & -2.274$^{***}$ & (0.364) & 0.010 \\
+\quad State Income Tax Rate (z) & 0.014 & (0.030) & 0.000 & -0.185 & (0.209) & 0.000 \\
+[3pt]
+Intercept & 3.345$^{***}$ & (0.027) & -- & 4.045$^{***}$ & (0.189) & -- \\
+\hline
+Observations & 3104 & & & 3104 & & \\
+$R^2$ & 0.480 & & & 0.199 & & \\
+\hline\hline
+\multicolumn{7}{l}{\footnotesize $^{*}p<0.1$; $^{**}p<0.05$; $^{***}p<0.01$. (z) = standardized.} \\
+\multicolumn{7}{l}{\footnotesize Partial $R^2$ = share of unexplained variance explained by predictor.} \\
+\multicolumn{7}{l}{\footnotesize Net migration data from Egan \& Robertson (2024).} \\
+\end{tabular}
+\end{table}

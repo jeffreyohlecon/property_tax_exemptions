@@ -1,0 +1,57 @@
+\begin{table}[htbp!]
+\centering
+\caption{Correlates of Senior Net Migration Rate (2010--2020)}
+\label{tab:netmig_regression}
+\begin{tabular}{lcccc}
+\hline\hline
+ & \multicolumn{4}{c}{\textit{Dependent Variable: Net Senior Migration Rate, 2010--2020}} \\
+\cmidrule(lr){2-5}
+ & \multicolumn{2}{c}{OLS} & \multicolumn{2}{c}{WLS} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & Coef. & Partial $R^2$ & Coef. & Partial $R^2$ \\
+\hline
+\textit{Demographic Variables} & & & & \\
+\quad Pop. 65+ Share (z) & 3.178$^{***}$ & 0.053 & 3.954$^{***}$ & 0.081 \\
+ & (0.799) & & (0.957) & \\
+\quad Log Total Population (z) & 1.712$^{**}$ & 0.007 & -2.599$^{**}$ & 0.026 \\
+ & (0.850) & & (1.129) & \\
+\quad Bottom Quartile Pop. Density & -3.430$^{***}$ & 0.046 & -4.639$^{***}$ & 0.031 \\
+ & (0.613) & & (0.640) & \\
+\quad Top Quartile Pop. Density & 0.442 & 0.001 & 1.702$^{**}$ & 0.013 \\
+ & (0.414) & & (0.681) & \\
+[3pt]
+\textit{Geographic \& Climate Variables} & & & & \\
+\quad Region: South & 2.645$^{***}$ & 0.033 & 3.867$^{***}$ & 0.061 \\
+ & (0.803) & & (0.797) & \\
+\quad Region: West & 2.787$^{***}$ & 0.025 & 4.701$^{***}$ & 0.069 \\
+ & (0.697) & & (0.905) & \\
+\quad Coastal County & -1.109$^{**}$ & 0.009 & -1.380$^{***}$ & 0.030 \\
+ & (0.438) & & (0.424) & \\
+\quad Natural Amenities Scale (z) & 0.547 & 0.001 & 0.635 & 0.002 \\
+ & (0.615) & & (0.858) & \\
+[3pt]
+\textit{Economic Variables} & & & & \\
+\quad Healthcare Empl. Share (z) & 0.647$^{**}$ & 0.003 & 1.148$^{**}$ & 0.004 \\
+ & (0.286) & & (0.545) & \\
+\quad Manufacturing Empl. Share (z) & 0.246 & 0.000 & 0.362 & 0.000 \\
+ & (0.267) & & (0.451) & \\
+\quad Median HH Income (\$000s) (z) & 3.861$^{***}$ & 0.044 & 4.667$^{***}$ & 0.106 \\
+ & (0.597) & & (1.510) & \\
+\quad Median House Value (\$0000s) (z) & -2.357$^{***}$ & 0.013 & -3.299$^{**}$ & 0.075 \\
+ & (0.846) & & (1.506) & \\
+\quad State Income Tax Rate (z) & -0.234 & 0.000 & -0.666 & 0.004 \\
+ & (0.627) & & (0.611) & \\
+[3pt]
+Intercept & 4.045$^{***}$ & -- & 5.284$^{***}$ & -- \\
+ & (0.703) & & (0.817) & \\
+\hline
+Observations & 3104 & & 3104 & \\
+$R^2$ & 0.197 & & 0.431 & \\
+Dep. Var. Mean & 4.04 & & 2.10 & \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize $^{*}p<0.1$; $^{**}p<0.05$; $^{***}p<0.01$. (z) = standardized.} \\
+\multicolumn{5}{l}{\footnotesize SEs clustered at state level. WLS weights by expected 65+ population.} \\
+\multicolumn{5}{l}{\footnotesize Partial $R^2$ = share of unexplained variance explained by predictor.} \\
+\multicolumn{5}{l}{\footnotesize Net migration data from Egan \& Robertson (2024).} \\
+\end{tabular}
+\end{table}

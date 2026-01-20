@@ -1,0 +1,320 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{adjustbox} 
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{indentfirst}
+\usepackage{natbib,subfig}
+\usepackage{threeparttable}
+\setcitestyle{maxcitenames=10, maxbibnames=10}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+
+\usepackage{pdfpages}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=black, filecolor=black, urlcolor=blue]{hyperref}
+
+
+
+\bibliographystyle{apalike}
+\onehalfspacing
+\title{Who Pays for Senior Tax Exemptions?}
+\author{Jeffrey Ohl}
+\date{December 10, 2025}
+
+
+
+
+\begin{document}
+\maketitle
+
+\section*{Context and Feedback Requested}
+
+\textbf{Key question:} Do senior property tax exemptions raise or lower tax rates for non-seniors? More ambitiously, what is the incidence of senior tax preferences, generally?
+
+\textbf{Identification Strategy:} Difference-in-differences exploiting staggered adoption of senior exemptions across jurisdictions.
+
+\textbf{Data Status:} The Georgia Property Tax Database from \citet{banzhaf2021age} would be an ideal place to start. It has exemption laws and rates for all Georgia jurisdictions from 1990--2013. Access is restricted; I have requested it but may not receive it. The alternative is building my own panel, which is feasible but would likely require 1--2 months.
+
+\textbf{Feedback requested:} Is there a faster way to test whether this idea will work before investing time in data collection? I'm looking for ways to fail fast.
+
+\section{Idea overview}
+ \textbf{Motivation}
+
+   One explanation for age-based tax preferences is political pandering to a powerful voting bloc \citep{mulligan1999gerontocracy}. But at the municipal level, there is a fiscal rationale: while seniors are costly for the federal government, they are fiscal assets for local governments. They pay property taxes but consume few costly local services, particularly K-12 education (see Table~\ref{tab:fiscal_impact}). This creates a fiscal surplus that municipalities may rationally compete for.
+
+    Localities attract seniors through both income and property tax exemptions.
+
+    On the income side, 41 states exempt Social Security entirely, and state income tax liabilities for 65+ households are 10--58\% lower than for similar younger households. \citep{BrewerConwayRork2017} estimates that about 7\% of state income tax revenue is spent on senior income tax exemptions. Appendix Table~\ref{tab:senior_tax_prefs} contains more examples.
+
+    Property tax exemptions are similarly widespread (see Table~\ref{tab:senior_tax_comparison}). No comprehensive national estimate exists, but individual state costs are large. Texas's 2025 increase in the homestead exemption for 65+ or disabled homeowners is projected to cost the state approximately \$600 million annually, and municipalities offer additional exemptions beyond state-level ones. Many exemptions have no income limits, so wealthy retirees receive the same benefit as those on fixed incomes.\footnote{Texas Legislative Budget Board, Fiscal Note for SB 23, 89th Legislature. Available at \url{https://capitol.texas.gov/tlodocs/89R/fiscalnotes/html/SB00023F.htm}.}
+
+    These policies induce sorting: \cite{banzhaf2021age} estimate that Cobb County's 100\% school tax exemption for those 62 and older increased the county's senior homeowner population by 32--54\%.
+
+    Who bears the cost of these exemptions? If exemptions are offset by higher rates on non-seniors, the subsidy is a direct transfer from younger to older residents. If senior in-migration expands the tax base enough to lower rates for everyone, the policy may be self-financing for the jurisdiction that adopts it (though not in aggregate). I hope to estimate what happens to tax rates on non-seniors when jurisdictions adopt senior exemptions.
+
+     \textbf{Related literature}
+    
+    
+    Several papers study senior migration directly: \citet{BadillaMarotoFaberLevyMunoz2024} establish that senior migration raises French house prices (by approximately 1\%) and tax revenues (property tax revenues by 1.3\%, land tax revenues by 2.8\%). \citet{banzhaf2021age} show that age-based property tax exemptions induce substantial senior sorting, but do not trace through the fiscal consequences for non-exempt taxpayers. 
+
+
+    The US context differs from France in ways that matter for welfare: US localities rely heavily on property taxes to fund K-12 education, creating a fiscal link between household composition and school spending. Seniors who pay property taxes represent a potential subsidy to families---but only if localities do not compete away this surplus through age-based exemptions.
+
+    An older literature finds that elderly population share is negatively associated with education spending \citep{Poterba1997, LaddMurray2001, HarrisEvansSchwab2001}. These papers study elderly population associations, not elderly tax breaks—the latter is my focus.
+
+    
+\section{Seniors as Fiscal Assets}
+Table~\ref{tab:fiscal_impact} provides illustrative calculations of the fiscal impacts of a senior household vs. a younger family for a \textbf{municipality}, assuming no senior tax exemptions. Education spending is large and mainly financed by local governments, so the number of children in a household is first-order for a household's fiscal impact on a municipality. The table excludes income taxes, since most municipalities do not impose an income tax.
+
+
+\input{figures/fiscal_impact_table.tex}
+
+Municipalities also provide senior-specific property tax relief, partially offsetting the fiscal benefits of senior migration. Senior property tax relief operates through three mechanisms: (1) direct exemptions that reduce assessed value by a fixed dollar amount or percentage; (2) senior-specific assessment freezes that lock in a base-year valuation; and (3) general assessment caps that limit annual increases for all homeowners but disproportionately benefit long-tenure residents. Table~\ref{tab:senior_tax_comparison} illustrates how these mechanisms interact in three large counties, assuming house prices in those counties grew at the same rate as they did nationally.
+
+In Harris County, a senior turning 65 saves \$2,140 annually through Texas's homestead exemption, regardless of tenure. In Cook County, the direct exemption saves only \$520, but the senior freeze delivers \$3,510 for a long-tenure homeowner. In Los Angeles, Proposition 13's assessment cap saves a 25-year owner \$1,790. The cap is not senior-targeted but delivers most of its benefits to long-tenured homeowners. Comparing these mechanisms is not straightforward: exemptions deliver immediate savings, while freezes deliver a subsidy whose present value depends on expected tenure and housing appreciation. 
+\begin{table}[htbp!]
+    \centering
+    \small
+    \begin{threeparttable}
+    \caption{Annual Property Tax Bills by Senior Status and Tenure: \$300,000 Home (2024)}
+    \label{tab:senior_tax_comparison}
+    \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    & \multicolumn{4}{c}{\textbf{Homeowner Profile}} \\
+    \cmidrule(lr){2-5}
+    \textbf{Jurisdiction} & {\textbf{Non-Senior}} & {\textbf{Senior 65}} & {\textbf{Senior 65}} & {\textbf{Senior 75}} \\
+    & {\textbf{(2024 Buyer)}} & {\textbf{(2024 Buyer)}} & {\textbf{(1999 Buyer)}} & {\textbf{(1989 Buyer)}} \\
+    \midrule
+    \addlinespace[0.5em]
+    \multicolumn{5}{l}{\textit{Panel A: Annual Property Tax Bill (\$)}} \\
+    \addlinespace[0.3em]
+    Cook County (Chicago)\tnote{a} & \$5,270 & \$4,750 & \$4,750 & \$1,760 \\
+    Harris County (Houston)\tnote{b} & \$4,430 & \$2,290 & \$2,290 & \$1,870 \\
+    Los Angeles County\tnote{c} & \$3,510 & \$3,510 & \$1,720 & \$1,640 \\
+    \addlinespace[0.5em]
+    \midrule
+    \addlinespace[0.5em]
+    \multicolumn{5}{l}{\textit{Panel B: Savings Relative to Non-Senior 2024 Buyer (\$)}} \\
+    \addlinespace[0.3em]
+    Cook County (Chicago) & -- & \$520 & \$520 & \$3,510 \\
+    Harris County (Houston) & -- & \$2,140 & \$2,140 & \$2,560 \\
+    Los Angeles County & -- & \$0 & \$1,790 & \$1,870 \\
+    \addlinespace[0.5em]
+    \midrule
+    \addlinespace[0.5em]
+    \multicolumn{5}{l}{\textit{Panel C: Effective Tax Rate (\% of \$300k Market Value)}} \\
+    \addlinespace[0.3em]
+    Cook County (Chicago) & 1.76 & 1.58 & 1.58 & 0.59 \\
+    Harris County (Houston) & 1.48 & 0.76 & 0.76 & 0.62 \\
+    Los Angeles County & 1.17 & 1.17 & 0.57 & 0.55 \\
+    \addlinespace[0.3em]
+    \bottomrule
+    \end{tabular}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item \textit{Notes:} Assumes \$50,000 household income. Historical purchase prices estimated using S\&P Case-Shiller U.S. National Home Price Index appreciation (4.9\% annually for 1999--2024; 4.3\% annually for 1989--2024). For columns 3--4, assessed values reflect market appreciation until the homeowner turned 65 and qualified for applicable freeze programs.
+    \item[a] Cook County 2024: 10\% assessment ratio, 3.0355 equalization factor, $\sim$6.5\% composite tax rate on EAV. Exemptions: homeowner (\$10,000 EAV), senior 65+ (\$8,000 EAV, income $<$\$65,000). Senior Freeze locks EAV at age 65. Column 4 assumes EAV frozen in 2014 at \$167,000 market value.
+    \item[b] Houston/Harris County 2024 rates: Houston School District 0.87\%, City of Houston 0.52\%, Harris County entities 0.60\% (county, hospital district, port, flood control). Exemptions: general homestead (school \$100,000; city/county 20\%), senior 65+ (school additional \$10,000; City of Houston \$260,000; Harris County \$229,000). School taxes frozen at age 65. Column 4 assumes school taxes frozen in 2014 at \$167,000 home value with \$25,000 exemption.
+    \item[c] California Proposition 13: assessed value equals purchase price, capped at 2\% annual growth; tax rate $\sim$1.17\% (1\% base plus local bonds). No senior-specific exemption.
+    \end{tablenotes}
+    \end{threeparttable}
+    \end{table}
+
+\section{Descriptive Patterns: Where are seniors moving?}
+If financial considerations dominate senior migration decisions, tax preferences could induce substantial sorting—even if poorly targeted to need. If amenities dominate instead, exemptions mostly subsidize inframarginal seniors who would have lived there regardless. This section explores correlates of senior migration over 2010–2020.
+
+Net migration is estimated as a residual: actual 2020 population minus the aged-forward population (the 2010 cohort aged 55+, minus deaths). This approach accounts for aging in---a county's 65+ population can only exceed the aged-forward count through in-migration, not locals getting older. See Appendix~\ref{app:netmig_calculation} for details. All right-hand-side variables are measured at the 2010 baseline.
+
+\input{figures/netmig_regression_table.tex}
+Table~\ref{tab:netmig_regression} reports correlates of senior net migration. State income tax rate is not statistically significant. Seniors moved to counties that already had large senior populations, avoided low-density areas, and favored the South and West. They moved to counties with high healthcare employment shares, high median household incomes, and low median house values.\footnote{The 65+ share coefficient is not mechanical. It would be zero if movers distributed themselves randomly across counties or if there were no migration at all.} These patterns suggest amenities matter more than taxes for location choice, raising the possibility that exemptions primarily subsidize inframarginal seniors rather than inducing new migration.
+
+
+
+
+
+
+
+\section{Research Design: Do Senior Property Tax Exemptions Raise or Lower Rates for Non-Seniors?}
+
+If seniors are fiscal assets for municipalities, a natural question is whether this surplus accrues to seniors themselves (via property tax exemptions) or is passed through to other taxpayers (via lower tax rates or improved services). Income tax relief varies only at the state level, limiting identification. Property tax exemptions, by contrast, vary across thousands of local jurisdictions and change over time. Age-based property tax exemptions induce substantial senior sorting \citep{banzhaf2021age}, but the incidence on non-seniors remains unexplored.
+
+\subsection{Research Question and Regression Equation}
+What happens to property tax rates on non-exempt properties when jurisdictions adopt senior exemptions? The basic specification is a difference-in-differences:
+\begin{equation}
+\text{NonSeniorTaxRate}_{jt} = \alpha_j + \gamma_t + \beta \cdot \text{SeniorExemption}_{jt} + \varepsilon_{jt}
+\end{equation}
+where $j$ indexes jurisdictions and $t$ indexes years. $\text{SeniorExemption}_{jt}$ is either a binary indicator for whether jurisdiction $j$ has a senior exemption in year $t$, or a continuous measure of exemption generosity (e.g., dollar value of the exemption). The coefficient $\beta$ captures the effect of adopting (or expanding) a senior exemption on millage rates.
+
+\begin{enumerate}
+    \item \textbf{Rates rise} ($\hat{\beta} > 0$): The exemption creates a revenue hole filled by higher rates on non-seniors.
+    \item \textbf{Rates fall} ($\hat{\beta} < 0$): Senior in-migration generates fiscal surplus that benefits non-seniors.
+    \item \textbf{Rates unchanged} ($\hat{\beta} \approx 0$): Exemptions are set such that seniors are fiscally neutral for jurisdictions.
+\end{enumerate}
+
+The specification will likely require lags—effects on property tax rates may show up only after seniors respond to the exemption and the tax base shifts.
+
+\subsection{Data Path Forward, Details}
+
+I am pursuing two parallel tracks:
+
+\begin{enumerate}
+    \item \textbf{Georgia Property Tax Database.} The data used in \citet{banzhaf2021age} contains detailed exemption laws (age thresholds, income limits, exemption amounts) from 1938--2013, millage rates for all 159 Georgia counties, school districts, and municipalities from 1990--2013, and staggered adoption timing across jurisdictions. Access is restricted; I requested access last week but may not receive it.
+
+    \item \textbf{Build my own dataset.} Collect senior property tax exemption parameters for representative addresses in the 20 largest US metro areas. Appendix~\ref{app:data_path} contains some rough details on a couple policies. I haven't started this yet. 
+\end{enumerate}
+
+\noindent The Georgia data would allow a clean difference-in-differences design with within-state variation. My own dataset would have more external validity but take time to compile.
+
+\bibliography{references}
+
+\appendix
+
+\section{State Income Tax Preferences}
+\label{app:state_income_tax}
+
+\begin{table}[htbp!]
+    \centering
+    \caption{State Income Tax Preferences for a Senior (Age 65+) with \$50,000 Income in the Ten Most Populous States}
+    \label{tab:senior_tax_prefs}
+    \smallskip
+    \small
+    \textit{Income composition: \$25,000 Social Security + \$15,000 401k/pension withdrawals + \$10,000 other}
+    \vspace{0.5em}
+
+    \begin{tabular}{l c r r r c}
+    \toprule
+    \textbf{State} & \textbf{Eff. Rate} & \textbf{Tax Due (Non-Sr.)} & \textbf{Savings} & \textbf{Tax Due (Sr.)} & \textbf{Sr. Eff. Rate} \\
+    \midrule
+    CA & 2.7\%  & \$1,350 & \$1,219 & \$131 & 0.3\% \\
+    TX & 0\%    & \$0     & \$0     & \$0   & 0\% \\
+    FL & 0\%    & \$0     & \$0     & \$0   & 0\% \\
+    NY & 4.3\%  & \$2,150 & \$2,070 & \$80  & 0.2\% \\
+    PA & 3.07\% & \$1,535 & \$1,228 & \$307 & 0.6\% \\
+    IL & 4.7\%  & \$2,346 & \$1,980 & \$366 & 0.7\% \\
+    OH & 1.2\%  & \$594   & \$594   & \$0   & 0\% \\
+    GA & 4.2\%  & \$2,086 & \$2,086 & \$0   & 0\% \\
+    NC & 3.4\%  & \$1,676 & \$1,125 & \$551 & 1.1\% \\
+    MI & 3.8\%  & \$1,887 & \$1,700 & \$187 & 0.4\% \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{0.5em}
+    \raggedright
+    \footnotesize
+    \textit{Notes:} Effective rates include standard deductions. TX and FL have no income tax. Senior exemptions by state: CA exempts Social Security and provides a \$149 senior tax credit; NY exempts Social Security and up to \$20k in pension/retirement income; PA and IL exempt all retirement income (Social Security, pensions, 401(k), IRA); OH exempts Social Security (remaining income falls in 0\% bracket); GA exempts up to \$65k in retirement income for seniors 65+; NC exempts Social Security only; MI exempts all retirement income.
+\end{table}
+
+\section{Net Migration Calculation}
+\label{app:netmig_calculation}
+
+Net migration cannot be directly observed---there is no administrative data tracking every move. Instead, \citet{EganRobertson2024} estimate it as a \textit{residual}:
+
+\begin{equation}
+\underbrace{\text{Net Migrants}_{65+}}_{\textcolor{blue}{\text{CALCULATED}}} = \underbrace{\text{Pop}_{65+}^{2020}}_{\textcolor{red}{\text{DATA}}} - \underbrace{\text{Expected Pop}_{65+}^{2020}}_{\textcolor{blue}{\text{CALCULATED}}}
+\end{equation}
+
+\begin{equation}
+\underbrace{\text{Expected Pop}_{65+}^{2020}}_{\textcolor{blue}{\text{CALCULATED}}} = \underbrace{\text{Pop}_{55+}^{2010}}_{\textcolor{red}{\text{DATA (Census)}}} - \underbrace{\text{Deaths}_{55+}^{2010-2020}}_{\textcolor{red}{\text{DATA (Vital Stats)}}}
+\end{equation}
+
+\noindent In words: $\text{Pop}_{65+}^{2020}$ is the actual count of people aged 65+ in 2020 (from Census). $\text{Expected Pop}_{65+}^{2020}$ is what the 65+ population \textit{would have been} if nobody moved---starting from the 2010 population aged 55+ and subtracting deaths over the decade.
+
+The expected population includes everyone who was 55--64 in 2010 and survived to become 65+ by 2020. So if a county's actual 65+ population exceeds expectations, it must be due to in-migration, not just locals getting older.
+
+\medskip
+\noindent\textbf{The rate:}
+{\small
+\[
+\text{Net Migration Rate} = \frac{\textcolor{blue}{\text{Net Migrants}_{65+}}}{\textcolor{blue}{\text{Expected Pop}_{65+}^{2020}}} \times 100
+\]}
+A value of 10 means net in-migration equal to 10\% of the expected 65+ population over the decade.
+
+\section{Data Path Forward}
+\label{app:data_path}
+
+\subsection{Why Existing Data Are Insufficient}
+
+The most comprehensive existing resource is the Lincoln Institute's \textit{Significant Features of the Property Tax} database, which documents property tax relief programs across all 50 states. However, this database operates at the \textit{state} level: it records that New York authorizes a local-option senior exemption with income limits ``between \$3,000 and \$29,000,'' but does not document what each locality actually chose. The local parameters---which determine actual tax savings---are not systematically collected anywhere.
+
+This matters because most senior property tax exemptions are locally determined. The Lincoln Institute notes that 48\% of senior exemption programs are locally funded, meaning localities set the parameters. A state-level dataset cannot capture the variation needed to study how exemption generosity affects tax burdens on non-seniors.
+
+\subsection{Unit of Analysis: Representative Addresses}
+
+A further complication is that ``jurisdiction'' is not well-defined for property taxes. A homeowner's tax bill reflects overlapping levies from the county, municipality, school district, and often multiple special districts---each of which may offer its own senior exemption. Rather than attempting to define jurisdictions, I propose selecting a \textit{representative residential address} in the principal city of each metro area and documenting the full stack of exemptions that apply to that parcel. This makes the unit of analysis concrete and ensures all applicable programs are captured.
+
+\subsection{Data Template}
+
+For each representative address, the data collection documents each senior exemption program that applies to the parcel. Table~\ref{tab:exemptions_comparison} illustrates this template for two metros: New York City (a consolidated city with unified taxation) and Chicago (where county, municipal, and school district levies are separate).
+
+\begin{table}[htbp!]
+\centering
+\caption{Part B: Senior Exemption Programs}
+\label{tab:exemptions_comparison}
+\small
+\begin{tabular}{lllll}
+\toprule
+& \multicolumn{2}{c}{\textbf{New York City}} & \multicolumn{2}{c}{\textbf{Chicago}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Field} & Enhanced STAR & SCHE & Senior Exemption & Senior Freeze \\
+\midrule
+Level & NY State & NYC & Illinois/Cook & Illinois/Cook \\
+Age threshold & 65 & 65 & 65 & 65 \\
+Income limit & \$98,700 & \$50,000--58,399\textsuperscript{$\dagger$} & None & \$65,000 \\
+Exemption type & \$ off school tax & \% of AV & \$ off EAV & Freeze EAV \\
+Magnitude & TBD (NYC amount) & 5--50\% & \$8,000 & Base year EAV \\
+Applicable levies & School only & All & All & All \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\raggedright
+\footnotesize
+\textit{Notes:} NYC parameters from NY Dept.\ of Taxation and Finance and NYC Dept.\ of Finance. Chicago parameters from Cook County Assessor. The Senior Freeze does not freeze the tax bill---it freezes the EAV, so taxes can still rise if rates increase. Income limits are for 2024--25 (NYC) and 2024 (Chicago). \textsuperscript{$\dagger$}SCHE uses a sliding scale: 50\% exemption for income $\leq$\$50,000; partial exemptions (5--45\%) for \$50,001--58,399.
+\end{table}
+
+\paragraph{Examples of variation.}  Cook County, IL increased its senior exemption from \$5,000 to \$8,000 EAV in 2017. NYC's SCHE income limits were frozen from 2009 to 2024, then raised from \$29,000 to \$50,000. Even a nominally constant exemption creates real variation over time due to inflation, a point \citet{saez2003effect} exploits.
+
+% \section{Related Literature}
+
+% \subsection{Seniors and Local Public Finance}
+% On the topic of school funding and elderly population, Poterba 1997, found ``that an increase in the fraction of elderly residents in a jurisdiction is associated with a significant reduction in per-child educational spending.''
+
+% Several papers from the early 2000s which Karen Smith Conway is a co-author on also look at senior migration in response to property and estate tax rates.
+
+% \subsection{What We Know from France}
+
+% The most comprehensive evidence on the local economic effects of senior migration comes from \citet{BadillaMarotoFaberLevyMunoz2024}, who study France using a shift-share instrumental variables design. Their findings provide a useful benchmark for what we might expect in the US context. Using predicted pensioner inflows as an instrument for observed migration, they estimate the causal effects of a 1\% increase in the local pensioner stock due to immigration:
+
+% \begin{itemize}
+%     \item \textbf{Population and employment:} Total local employment increases by $\approx$1.5\% and the local population by 1.1\%. The working-age population increases by 0.7\%, suggesting significant knock-on effects beyond the retirees themselves. Notably, the share of the local population that is retired does not increase significantly---new arrivals crowd in other residents rather than displacing them.
+
+%     \item \textbf{Output and income:} Local GDP increases by $\approx$1\% and GDP per capita by $\approx$0.8\%. Average incomes (from tax records) increase by $\approx$1\%. These multiplier effects are consistent with recent estimates of local fiscal multipliers \citep[e.g.,][]{NakamuraSteinsson2014}.
+
+%     \item \textbf{Housing and fiscal revenue:} Local housing prices increase by $\approx$1\%. Property tax revenues increase by $\approx$1.3\% and land tax revenues by $\approx$2.8\%. This price appreciation benefits homeowners but raises housing costs for renters.
+
+%     \item \textbf{Industrial composition:} The manufacturing employment share declines by $\approx$0.6 percentage points, as regions attracting seniors specialize in services relative to manufacturing.
+% \end{itemize}
+
+% \noindent These results establish that senior migration generates substantial positive local economic effects on average. But they leave open the question of \textit{incidence}: who captures the benefits and who bears the costs? The French estimates show that housing prices rise roughly one-for-one with the pensioner inflow, suggesting incumbent homeowners benefit while renters face higher costs. This raises several questions we can address:
+
+% \begin{itemize}
+%     \item \textbf{Incidence across residents:} Do the fiscal benefits (higher tax revenues, no school costs) flow to all residents through lower tax rates or better services, or are they captured by landowners through capitalization? If municipalities respond to senior inflows by cutting tax rates, renters benefit; if they hold rates constant and let land values rise, owners benefit.
+
+%     \item \textbf{Incidence across jurisdictions:} Localities compete for seniors through age-based property tax exemptions and other policies. How much of the fiscal surplus is dissipated through this competition? \citet{banzhaf2021age} show these exemptions induce substantial senior sorting, but do not trace through the fiscal consequences for non-exempt taxpayers.
+% \end{itemize}
+
+
+% \bibliography{references}
+
+\input{figures/summary_stats_table.tex}
+
+\input{figures/variable_definitions.tex}
+
+\end{document}

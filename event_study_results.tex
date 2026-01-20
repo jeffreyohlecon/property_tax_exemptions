@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\caption{Event Study Results: Hospital Closure Effects on House Prices}
+\label{tab:event_study}
+\begin{tabular}{lcccc}
+\hline\hline
+Variable & Coefficient & Std. Error & t-statistic & P-value \\
+\hline
+$q = -4$ & -1672.5831 & (2043.1990) & -0.82 & 0.414 \\
+$q = -3$ & -1513.6864 & (1818.9261) & -0.83 & 0.406 \\
+$q = -2$ & -446.6188 & (1607.9965) & -0.28 & 0.781 \\
+$q = +0$ & 146.1616 & (1319.4504) & 0.11 & 0.912 \\
+$q = +1$ & 1347.7796 & (1280.2749) & 1.05 & 0.293 \\
+$q = +2$ & 2521.1119* & (1282.8008) & 1.97 & 0.050 \\
+$q = +3$ & 2239.0277* & (1323.3194) & 1.69 & 0.092 \\
+\hline
+Observations & \multicolumn{4}{c}{446} \\
+R-squared & \multicolumn{4}{c}{0.996} \\
+Adj. R-squared & \multicolumn{4}{c}{0.994} \\
+Zip Code FE & \multicolumn{4}{c}{Yes} \\
+Quarter FE & \multicolumn{4}{c}{Yes} \\
+\hline\hline
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: Standard errors in parentheses. * p$<$0.10, ** p$<$0.05, *** p$<$0.01. Event time is measured in quarters relative to hospital closure.
+\end{tablenotes}
+\end{table}
