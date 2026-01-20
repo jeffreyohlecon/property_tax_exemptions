@@ -1,0 +1,282 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=black, urlcolor=blue]{hyperref}
+
+\onehalfspacing
+\title{Data Plan: Senior Property Tax Exemptions in Florida}
+\author{Jeffrey Ohl}
+\date{January 2026}
+
+\begin{document}
+\maketitle
+
+\section{The Florida Data}
+
+Florida Department of Revenue provides parcel-level property tax data for all 67 counties, 2002--present. This is unusually complete---most states don't aggregate assessor data at the state level.
+
+\url{https://floridarevenue.com/property/dataportal/}
+
+\subsection{What's Available}
+
+\begin{itemize}
+    \item \textbf{NAL files (parcel-level)}: Exemption amounts by type, taxable values, property location, owner info. Key fields:
+    \begin{itemize}
+        \item EXMPT\_03: County senior exemption (65+, income-limited, up to \$50k)
+        \item EXMPT\_04: Municipal senior exemption (same eligibility, separate policy)
+    \end{itemize}
+    \item \textbf{Millage rate PDFs}: County and municipal rates, 2008--2024. Clean tabular format, parseable with \texttt{pdfplumber}.
+    \item \textbf{Sales data}: Arms-length transactions, 2009--present.
+\end{itemize}
+
+\subsection{Key Features for Identification}
+
+\begin{enumerate}
+    \item \textbf{Local policy variation}: Counties and municipalities independently adopt senior exemptions. Some offer \$50k, others \$25k, some don't offer it at all. Example: Florida City and Miami Shores do not offer the municipal exemption; neighboring cities do.
+
+    \item \textbf{Income threshold indexed to national CPI}: Eligibility requires household income below \$37,694 (2025). This threshold is set statewide and indexed to \textit{national} CPI, not local cost of living. In low-COL areas, \$37k is comfortable---more seniors qualify. In high-COL areas, \$37k is near-poverty---fewer qualify. Cross-sectional variation in effective eligibility stringency.
+
+    \item \textbf{Parcel-level exemption amounts}: Can observe who claims exemptions and for how much, not just policy existence.
+\end{enumerate}
+
+\subsection{Preliminary Findings (Miami-Dade 2025)}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Exemption Amount & Parcels & \% of Exempted & \% of All \\
+\midrule
+$<$\$10k & 338 & 1.0\% & 0.04\% \\
+\$10k--\$25k & 5,421 & 15.5\% & 0.58\% \\
+\$25k--\$50k & 29,183 & 83.5\% & 3.13\% \\
+$>$\$50k & 0 & 0.0\% & 0.00\% \\
+\midrule
+\textbf{Total} & 34,942 & 100\% & 3.74\% \\
+\bottomrule
+\end{tabular}
+\caption{Distribution of county senior exemptions (EXMPT\_03). Mean: \$43,842; Median: \$50,000 (the cap).}
+\end{table}
+
+\textbf{Dollar value of exemption}: Combining exemption amounts with millage rates:
+\begin{itemize}
+    \item Mean savings: \$487/year (county: \$360, municipal: \$127)
+    \item Range: \$360--\$730/year depending on location
+    \item As share of income at eligibility threshold: 1.3\% (mean), 1.9\% (max)
+\end{itemize}
+
+\textbf{Revenue hole}: Total exempted value = \$1.53B; forgone county revenue = \$11M/year (\textbf{0.35\% of county levy}).
+
+\section{Does the Exemption Pay for Itself?}
+
+Before studying incidence or behavioral responses, a prior question: does attracting seniors through tax exemptions generate enough offsetting revenue to cover the exemption cost?
+
+\subsection{The Standard Argument}
+
+Seniors are often framed as fiscal assets at the local level. They pay property taxes but don't use schools (typically 50\% of local budgets). Munoz et al.\ (France) find senior inflows increase local property tax revenue by 14\% and employment by 5.5\%. If seniors are net contributors, exemptions that attract them could be self-financing.
+
+\subsection{Why Florida's Exemption Probably Doesn't Self-Finance}
+
+The Florida senior exemption has features that undermine the self-financing logic:
+
+\textbf{Income cliff, not phase-out.} Eligibility requires AGI $\leq$ \$38,686 (2026). Exceed the threshold by \$1, lose 100\% of the exemption. No partial credit. This hard cutoff means every senior attracted by the exemption is income-constrained by construction---these are not wealthy retirees bringing fiscal surpluses.
+
+\textbf{Low-income seniors have modest tax contributions.} A senior at the income threshold ($\sim$\$38k AGI) can afford roughly a \$200k house (30\% housing-cost-to-income). At 1.5\% effective property tax rate, that's \$3,000/year in taxes. Subtract the \$500 exemption: net contribution is \$2,500. Compare to per-pupil school spending of $\sim$\$10k/year---the ``no kids in school'' savings still exceeds their net tax payment.
+
+\textbf{Fiscal mismatch across jurisdictions.} The exemption applies only to county and municipal levies ($\sim$30\% of the tax bill). School districts bear none of the exemption cost but capture the full benefit of reduced school enrollment. The jurisdiction paying for the exemption is not the jurisdiction receiving the fiscal surplus from childless households.
+
+\textbf{Revenue-maximizing politician wouldn't choose this.} A jurisdiction trying to attract fiscal-positive seniors would target high-income retirees, not cap eligibility at \$38k. The policy looks more like constituent service---long-term residents asking for relief---than fiscal competition for mobile retirees.
+
+\subsection{Implication for Research Design}
+
+The self-financing question changes the research framing. If the exemption doesn't pay for itself, we're studying a transfer from non-exempt taxpayers to low-income seniors, mediated by local politics. The interesting questions become:
+\begin{itemize}
+    \item Why do localities adopt exemptions that don't pay for themselves?
+    \item Do seniors actually respond to exemptions, or are they paying for people who would stay anyway?
+    \item What's the incidence: do home prices adjust, or do tax rates rise for non-seniors?
+\end{itemize}
+
+To answer the second question, we need migration data.
+
+\section{What Research Questions Are Feasible?}
+
+The small revenue hole (0.35\% of levy) has implications for what questions we can answer.
+
+\subsection{Probably Not Feasible: Exemptions $\to$ Rates}
+
+The original idea: do exemptions shift the tax burden to non-seniors? If seniors are exempted, someone else pays more.
+
+\textbf{Problem}: The fiscal pressure is too small. A 0.35\% revenue hole is unlikely to induce observable rate adjustments. The exemption applies only to county/municipal levies---not school districts or special districts, which are often larger. Even if the taxing authority responds, the signal may be buried in noise.
+
+\subsection{More Promising: Capitalization}
+
+Do home prices reflect the value of exemptions? A qualifying senior saves \$500/year; capitalized at 5\%, that's \$10,000 in home value. But this only applies to homes owned by qualifying seniors---creates a \textit{buyer-specific} premium.
+
+\textbf{Identification}: Compare sale prices of homes previously owned by exemption-eligible seniors vs.\ similar homes without the exemption history. Or: compare home values in high-millage vs.\ low-millage municipalities, where the exemption is worth more.
+
+\textbf{What Florida offers}: Parcel-level exemption status + sales data + millage rates. Can construct the dollar value of exemption eligibility for each transaction.
+
+\subsection{More Promising: Sorting Around Eligibility Threshold}
+
+The income threshold (\$37,694) creates a notch. Seniors with income just above the threshold lose the exemption entirely. Behavioral responses:
+\begin{itemize}
+    \item Income manipulation (defer income, shift assets)
+    \item Location sorting (move to high-exemption jurisdictions if eligible)
+    \item Take-up among eligibles (who claims vs.\ who doesn't)
+\end{itemize}
+
+\textbf{Problem}: Income is not in the property data. Would need to merge with tax returns or survey data, or infer from home values.
+
+\subsection{More Promising: Migration Response to Local Exemption Variation}
+
+Do seniors move to jurisdictions with more generous exemptions? Banzhaf (2021) does this for Georgia. Florida has the policy variation (cross-municipal, cross-county) and the parcel data to track exemption claiming over time.
+
+\textbf{What Florida offers}: Panel of exemption claims by parcel, 2002--present. Can observe when a parcel starts claiming senior exemptions (proxy for senior moving in or aging into eligibility).
+
+\section{What Needs to Be True}
+
+\begin{enumerate}
+    \item \textbf{Exemption policy changes are observable}: Either from the data (infer caps from distribution of claimed amounts) or from external sources (ordinances, statutes).
+
+    \item \textbf{Millage rates are available historically}: Have 2008--2024 from PDFs. Pre-2008 may require FOIA.
+
+    \item \textbf{Sales data links to NAL}: Need to merge transactions with exemption status. Both are parcel-keyed; should be feasible.
+\end{enumerate}
+
+\section{Existing Literature}
+
+\subsection{Banzhaf, Mickey, and Patrick (2021): Georgia}
+
+\textbf{Framing}: Age-based exemptions as Tiebout sorting and intergenerational transfer. The ``golden handcuffs'': by lowering carrying costs, exemptions discourage seniors from downsizing or moving away. Primary focus is behavioral responsiveness---do seniors actually respond, or are exemptions just giveaways to people who would stay anyway? Contribution framed around rigorous identification (``Quadruple-Difference'').
+
+\textbf{Key Findings}:
+\begin{enumerate}
+    \item Strong behavioral response: adopting an age-based exemption causes 32--54\% increase in older homeowners
+    \item Housing consumption increases: exemptions cause seniors to consume more housing (larger/more expensive homes)
+    \item Tenure shift: policies shift seniors from renting to owning
+    \item Counterfactual: if Cobb County repealed its policy, it would lose 3--5\% of senior population
+    \item Cost estimate: exemption costs Cobb County \$33--59M annually in lost revenue
+\end{enumerate}
+
+\textbf{Limitation}: Decadal data (1970, 1980, 1990, 2000, 2010). Only 5 observations per county. Policy changes within a decade get smeared. Hard to separate migration timing from cohort effects or housing market cycles. Tax bills simulated for synthetic population rather than observed.
+
+\subsection{Munoz, Pinchon, Schmidheiny, and Slotwinski (France)}
+
+\textbf{Framing}: Senior migration not as demographic burden but as spatial redistribution of demand. The ``anti-agglomeration'' force: unlike workers who cluster in productive cities, seniors move from rich/urban to poor/rural areas. The ``silver economy'' as development policy---alternative to industrial policy for lagging regions. Mechanism is pure demand shock: seniors bring portable wealth/pensions without competing for jobs.
+
+\textbf{Key Findings}:
+\begin{enumerate}
+    \item Direction of flows: seniors move opposite direction of working-age population (high-income/high-density $\to$ low-income/low-density)
+    \item Employment multiplier: 1 SD senior inflow (+2\% local population) $\to$ 5.5\% increase in total local employment
+    \item Crowd-in effect: senior inflows attract working-age migrants (+4\% working-age population per 1 SD senior inflow)
+    \item Sectoral shift: local economy shifts toward non-tradable services; service employment share rises 1pp
+    \item No Dutch Disease: manufacturing employment flat, not negative
+    \item Housing and revenue: single-family housing stock +7.5\%; local fiscal revenues +14\% (noisy with AKM SEs)
+    \item Inequality reduction: senior migration reduced spatial inequality, boosting employment in poorest regions by $\sim$2.5\%
+\end{enumerate}
+
+\textbf{Limitation}: No policy lever---they describe migration patterns, not what causes them. Uses shift-share IV (origin-based predicted inflows).
+
+\subsection{Gap Between Papers}
+
+Banzhaf answers: ``Do seniors respond to tax exemptions?'' (Yes.)
+
+Munoz answers: ``What happens when seniors arrive?'' (Employment multiplier, fiscal gains, crowd-in.)
+
+Neither connects the policy lever to the downstream effects. Banzhaf treats fiscal cost as back-of-envelope afterthought. Munoz has no policy instrument.
+
+The policy-relevant question neither answers: At what migration elasticity do exemptions pay for themselves?
+
+\section{Migration Data: What Exists?}
+
+To study whether seniors respond to exemption generosity, we need migration flows by age at sub-county geography.
+
+\subsection{IRS Statistics of Income (County-to-County)}
+
+The IRS publishes annual migration flows from tax returns. Available 2011--present. Counts of returns (households) and exemptions (people) moving between county pairs. Age breakdowns available (65+).
+
+\textbf{Limitation}: County-level only. Florida's exemption varies at the municipality level---two cities in the same county can have different policies. County-level data would miss within-county sorting.
+
+\subsection{American Community Survey}
+
+ACS asks about residence one year ago. Can tabulate in-migration by age for any geography.
+
+\textbf{Limitation}: Sample sizes. Florida has 411 municipalities. The 1-year ACS only covers places with population $>$65,000 ($\sim$50 Florida cities). The 5-year ACS covers smaller places but aggregates over time, washing out year-to-year policy changes. Standard errors for age-specific migration to small cities would be large.
+
+\subsection{Florida Voter File}
+
+Florida makes voter registration data public, including address history and birth date. Could construct migration panel for registered voters.
+
+\textbf{Limitation}: Selection on voter registration. Seniors have high registration rates, so selection may be less severe than for younger populations. But still excludes non-citizens and non-registrants.
+
+\subsection{Parcel Data as Proxy}
+
+The NAL files show when a parcel first claims senior exemption. This captures:
+\begin{itemize}
+    \item A senior moving in and claiming
+    \item An existing resident turning 65 and claiming
+    \item An existing senior becoming income-eligible
+\end{itemize}
+
+Cannot distinguish these without additional data. But can observe \textit{new} exemption claims by location over time---a noisy proxy for senior arrivals.
+
+\subsection{Assessment}
+
+No clean source for municipality-level senior migration flows. Best options:
+\begin{enumerate}
+    \item \textbf{County-level IRS data}: Sacrifice within-county variation but get clean migration counts.
+    \item \textbf{Parcel-level exemption claims}: Keep municipality variation but conflate migration with aging-in.
+    \item \textbf{Florida voter file}: Municipality-level, age-specific, but selected sample.
+\end{enumerate}
+
+The research design depends on which tradeoff is acceptable.
+
+\subsection{County-Level Design Could Work}
+
+IRS county-to-county flows would suffice if there's time-series variation in county-level policy. Diff-in-diff: counties that adopt/expand exemptions vs.\ counties that don't, comparing 65+ inflows before and after.
+
+\textbf{What we need to know}:
+\begin{itemize}
+    \item When did each county first adopt the senior exemption?
+    \item Have any counties changed their cap (\$25k $\to$ \$50k)?
+    \item Is there enough staggered adoption to power an event study?
+\end{itemize}
+
+The NAL files could answer this indirectly. If a county has zero EXMPT\_03 claims in early years then positive claims later, that's an adoption event. The distribution of claimed amounts reveals the cap (mass at \$25k vs.\ \$50k).
+
+\textbf{Feasibility check}: Request historical NAL files and construct county-by-year panel of (a) whether exemption exists, (b) apparent cap from distribution. Then assess whether there's enough variation for event study.
+
+\textbf{Sample size}: Florida has 67 counties. If 20--30 change policy during the IRS migration data period (2011--present), that's comparable to state-level policy papers. The binding constraint is whether variation exists, not sample size.
+
+\section{Concrete Next Steps}
+
+Before collecting more data, resolve the research design question: what's the identifying variation and what outcome can we measure?
+
+\begin{enumerate}
+    \item \textbf{Check cross-sectional variation first}: Using the 2025 NAL files (now downloaded for all 67 counties), check whether exemption policy varies across counties today. If there's no cross-sectional variation, time-series variation is unlikely. Examine:
+    \begin{itemize}
+        \item Which counties have nonzero EXMPT\_03 claims?
+        \item What's the distribution of exemption amounts? (Mass at \$25k vs.\ \$50k reveals caps.)
+        \item Any counties with zero senior exemptions?
+    \end{itemize}
+
+    \item \textbf{Historical NAL files}: Requested 2002--2023 NAL files from PTOTechnology@floridarevenue.com (January 2026). These will reveal policy adoption timing.
+
+    \item \textbf{Assess migration data feasibility}: Download IRS SOI county flows for Florida. Match to exemption policy variation.
+
+    \item \textbf{Clarify the policy question}: Is the goal to study (a) whether exemptions attract seniors, (b) whether exemptions are self-financing, or (c) who bears the incidence? These require different data.
+\end{enumerate}
+
+\section{Other Data Sources (Lower Priority)}
+
+\subsection{Texas Comptroller}
+
+Five-year panel (2021--2025) of tax rates. Does not include exemption information. Major exemption changes are state-level (no within-state variation).
+
+\subsection{Georgia Tax Digest}
+
+Thirty-five-year panel (1990--2024) of property values by jurisdiction. Does not include exemption policy information.
+
+\end{document}

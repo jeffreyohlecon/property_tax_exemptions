@@ -1,5 +1,29 @@
 # Project Instructions for Claude
 
+## FRAMING REMINDER (January 2026)
+
+**STOP. Before executing any code or data tasks, ask: Is the research question clear?**
+
+The Florida data is good. That's not enough. Banzhaf et al. (Georgia) already show seniors respond to exemptions. Munoz et al. (France) already show senior inflows generate employment multipliers and tax revenue gains.
+
+The fiscal cost of Florida's exemption is small (~0.35% of county levy, ~$500/year per household). This kills "do exemptions pay for themselves?" as a headline finding—the dollars are too small to drive meaningful migration or rate responses.
+
+**What Florida uniquely offers:**
+- Parcel-level exemption claiming over time (2002–present)
+- Sales data linked to exemption status
+- Within-county municipal variation in policy
+
+**Promising directions (not yet committed):**
+1. Capitalization: Does the $500/year exemption capitalize into home prices?
+2. Incidence: Do sellers or senior buyers capture the transfer?
+3. Take-up patterns: Who claims among eligibles?
+
+**Do not proceed with data collection or analysis until the contribution is articulated.**
+
+See `memos/ourpoint/outline_our_point.tex` for working through this.
+
+---
+
 ## Writing Style
 - Avoid cliché or overly clever phrasing (e.g., "And compete they do", "Lo and behold", "Needless to say")
 - Prefer direct, plain academic prose

@@ -1,0 +1,428 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{xcolor}
+
+\onehalfspacing
+\title{What Is Our Point?}
+\author{Jeffrey Ohl}
+\date{January 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Status Summary (January 2026)}
+
+\textcolor{red}{\textbf{Next step is thinking, not data collection.} Write down candidate theories and evaluate which are testable:
+\begin{itemize}
+    \item \textbf{Fiscal competition}: Localities compete for mobile seniors. Predicts more generous exemptions where senior migration is elastic.
+    \item \textbf{Political capture}: Seniors vote and lobby. Predicts richer seniors get more (better organized). Income caps are inconsistent with this.
+    \item \textbf{Anti-displacement}: Exemptions protect vulnerable incumbents, not attract new seniors. Predicts caps and tenure requirements (e.g., Florida's 25-year residency option).
+\end{itemize}
+The two-type observation (uncapped vs.\ capped) may be the seed: \textit{uncapped = attract}, \textit{capped = protect}. Test: Do uncapped jurisdictions see more senior in-migration? Do capped jurisdictions see more senior stability?}
+
+\vspace{1em}
+
+\textbf{Data}: Florida parcel-level exemption claims and sales, 2002--present. Requested time series on Jan 20, 2026. Local policy variation exists within Florida (see Appendix B)---municipalities adopt the senior exemption at different times and levels.
+
+\textbf{Key facts}:
+\begin{itemize}
+    \item Florida's Additional Senior Exemption requires AGI $\leq$ \$38,686 and saves $\sim$\$500/year
+    \item This is small: $\sim$0.35\% of county levy. Rate responses to exemption adoption would be hard to detect.
+    \item Two types of exemptions exist nationally: uncapped (Texas, \$2k+/year) vs.\ income-capped (Florida). A paper needs a theory for why both exist.
+\end{itemize}
+
+\textbf{Two potential questions}:
+
+\begin{enumerate}
+    \item \textbf{Policy design} (Section~\ref{sec:bestframing}): Why do some states cap and others don't? Florida's low cap excludes most seniors---surprising if rich seniors are better organized. The cap is evidence for smart targeting (subsidize marginal migrants) or against pure capture. \textit{Cross-state comparison; doesn't require Florida microdata.}
+
+    \item \textbf{Capitalization/incidence} (Section~\ref{sec:capitalization}): Does the exemption capitalize into prices? If senior buyers pay more for similar houses, sellers capture part of the exemption. \textit{Uses Florida parcel data.}
+\end{enumerate}
+
+\textbf{Identification for Question 2}: The within-Florida local variation (Appendix B) is the source of policy variation needed to cleanly identify capitalization. Municipalities adopt the senior exemption at different times and levels. This enables DiD: compare price changes in adopting vs.\ non-adopting jurisdictions, or before/after adoption within municipalities.
+
+\textbf{Honest assessment}: Question 1 is more interesting but requires cross-state data collection. Question 2 is tractable with Florida data + local variation, but the finding (``demand subsidies capitalize'') is not surprising. The question is whether documenting this for a targeted senior exemption adds enough to justify the paper.
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\section{The Two Types of Exemptions}
+
+Senior property tax exemptions come in two flavors:
+
+\textbf{Uncapped}: All seniors qualify regardless of income. Texas (\$2,140/year in Harris County), parts of Georgia. Large dollar values.
+
+\textbf{Circuit-breaker / Income-capped}: Only low-income seniors qualify. Florida (\$38k cap, \$500/year), many other states. Smaller dollar values.
+
+Any paper about senior exemptions needs a theory for why both exist.
+
+\textbf{Candidate theories}:
+\begin{itemize}
+    \item Uncapped = fiscal competition (Tiebout story fits) OR interest group capture (seniors lobby effectively)
+    \item Circuit-breaker = smart targeting (see ``Best Framing'') OR constituent service / anti-displacement
+\end{itemize}
+
+The income cap could be revealed preference against fiscal competition---or it could be efficient targeting of price-sensitive migrants. Either way, documenting interest group success is a valid paper (Bombardini \& Trebbi, regulatory capture literature), but requires showing the mechanism: lobbying expenditures, campaign contributions, legislative voting records.
+
+\section{The Gap}
+
+Banzhaf et al.\ answer: ``Do seniors respond to exemptions?'' (Yes---32--54\% increase in older homeowners.)
+
+Munoz et al.\ answer: ``What happens when seniors arrive?'' (Employment multiplier, fiscal revenue gains.)
+
+Coven, Golder, Gupta, and Ndiaye (2025) answer: ``How do property taxes affect lifecycle housing allocation?'' Property taxes are ``embedded leverage''---higher taxes capitalize into lower prices, benefiting credit-constrained young households. Low property tax regimes (California) encourage senior lock-in and price out young families.
+
+\section{Best Framing}
+\label{sec:bestframing}
+
+\textbf{Why this matters (magnitudes)}: Senior property tax exemptions are large and widespread. Texas's 2025 homestead exemption increase for 65+ homeowners costs approximately \$600 million annually. In Harris County, a senior turning 65 saves \$2,140/year; in Cook County, the senior freeze delivers \$3,510/year for long-tenure homeowners. Banzhaf et al.\ estimate Cobb County's 100\% school tax exemption increased the senior homeowner population by 32--54\%. On the income side, 41 states exempt Social Security entirely, and about 7\% of state income tax revenue goes to senior exemptions. These are first-order fiscal policies.
+
+\textbf{The puzzle}: Budget constraints mean some cap is expected. But the \textit{level} of the cap matters. Florida's \$38k threshold excludes most homeowning seniors---median income for 65+ households is around \$50k. If the rich are better organized (Olson), you'd expect the cap set high enough that most seniors qualify, or no cap at all. A low cap that excludes the majority is surprising from a pure capture perspective.
+
+\textbf{The resolution}: The income cap is evidence \textit{for} smart targeting, \textit{against} pure political economy.
+
+\begin{itemize}
+    \item Wealthy seniors are inframarginal---they move to Florida regardless (weather, amenities, no state income tax)
+    \item Low-income seniors are marginal---\$500/year might tip the decision
+    \item Low-income seniors are \textit{still fiscally positive}: they pay property tax on their home, don't send kids to school
+    \item Therefore: subsidize the marginal senior who's still a net contributor
+\end{itemize}
+
+\textbf{What the paper would do}:
+\begin{enumerate}
+    \item Document the income cap design across states (who caps, who doesn't)
+    \item Note a low cap is inconsistent with pure capture (if rich seniors are better organized, cap should be set high)
+    \item Test if low-income seniors are more elastic (the targeting story requires this)
+    \item Verify low-income seniors are still fiscally positive at the local level
+\end{enumerate}
+
+On political data: you might have more than you think. AARP lobbying, state legislative voting records, ballot initiative data. Worth checking before assuming it's unavailable.
+
+\subsection{Alternative Framing: Capitalization and Incidence}
+\label{sec:capitalization}
+
+\subsubsection{Toy Model of Incidence}
+
+\textbf{Setup}: A continuum of houses (measure $H$) and buyers. Seniors have measure $m_S$, non-seniors have measure $m_N$, with $m_S + m_N > H$ (more buyers than houses). Each buyer draws a private valuation $v$ from distribution $F(\cdot)$ with density $f(\cdot)$. Seniors receive an exemption worth $E$ in present value.
+
+\textbf{Demand}: At price $P$:
+\begin{itemize}
+    \item Non-seniors buy if $v \geq P$. Demand: $m_N \cdot (1 - F(P))$
+    \item Seniors buy if $v + E \geq P$, i.e., $v \geq P - E$. Demand: $m_S \cdot (1 - F(P - E))$
+\end{itemize}
+
+\textbf{Equilibrium}: Price $P^*$ clears the market:
+\[
+m_N \cdot (1 - F(P^*)) + m_S \cdot (1 - F(P^* - E)) = H
+\]
+
+\textbf{Comparative static}: How does price respond to the exemption? Totally differentiate:
+\[
+\frac{dP}{dE} = \frac{f(P-E) \cdot m_S}{f(P) \cdot m_N + f(P-E) \cdot m_S}
+\]
+
+With uniform valuations ($f$ constant), this simplifies to:
+\[
+\frac{dP}{dE} = \frac{m_S}{m_S + m_N} = \text{senior share of buyers}
+\]
+
+\textbf{Incidence}:
+\begin{itemize}
+    \item \textbf{Sellers capture}: $E \times (\text{senior share})$ via higher prices
+    \item \textbf{Senior buyers capture}: $E \times (1 - \text{senior share}) = E \times (\text{non-senior share})$
+\end{itemize}
+
+\textbf{Intuition}: Non-senior buyers anchor the price. If the market is all seniors, they bid against each other and the price rises by the full $E$. If the market has many non-seniors, seniors can buy at a price closer to non-senior WTP and pocket the difference.
+
+\textbf{Extreme cases}:
+\begin{itemize}
+    \item All seniors ($m_N = 0$): $dP/dE = 1$. Full capitalization. Seniors gain nothing net.
+    \item Half seniors: $dP/dE = 0.5$. Price rises by half of $E$. Seniors capture half.
+    \item Few seniors: $dP/dE \to 0$. Seniors capture most of $E$.
+\end{itemize}
+
+\textbf{Testable prediction}: Capitalization rate $\approx$ local senior buyer share. Interact the buyer-senior indicator with tract/zip-level senior population share.
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+The ``smart targeting'' story above requires testing migration elasticities by income---data that may not exist at the right granularity. A cleaner approach: ask who actually benefits from the exemption.
+
+\textbf{The frame}: The senior property tax exemption is a \textit{demand-side subsidy}. It raises senior buyers' willingness-to-pay by the present value of future tax savings (\$500/year $\times$ $\sim$20 years $\approx$ \$8--10k). Standard subsidy incidence logic applies: prices rise, with the split between buyer and seller depending on relative elasticities.
+
+\textbf{Mixed-market intuition}: In a market where seniors and non-seniors compete for housing, the degree of capitalization depends on who is the marginal buyer.
+\begin{itemize}
+    \item If the marginal buyer is a non-senior: price anchored at non-senior WTP. Senior buyer captures the subsidy.
+    \item If the marginal buyer is a senior: price bid up to senior WTP. Seller captures the subsidy.
+    \item In practice: mixed markets yield partial capitalization. More seniors $\to$ more capitalization.
+\end{itemize}
+
+This generates a testable cross-sectional prediction: capitalization should be higher in markets with greater senior demand (retirement communities) and lower where seniors are rare.
+
+\textbf{Incidence implications} (depend on degree of capitalization):
+\begin{itemize}
+    \item \textit{Existing senior homeowners}: Win. Their home is worth more (to the extent the exemption capitalizes).
+    \item \textit{Senior buyers}: Gain = $E \times (1 - \text{capitalization rate})$. In markets with many seniors, gain $\to 0$. In markets with few seniors, gain $\to E$.
+    \item \textit{Sellers}: Gain = $E \times \text{capitalization rate}$, when selling to a senior.
+    \item \textit{Non-senior buyers}: May face elevated prices in high-senior-demand markets, without getting the exemption benefit.
+\end{itemize}
+
+\textbf{The flip}: The policy is framed as ``helping seniors.'' But if it capitalizes, it helps senior \textit{owners} and \textit{sellers}, not senior \textit{buyers}. The ``anti-displacement'' framing is correct---it protects incumbents. The ``attract seniors'' framing is wrong---senior in-migrants pay the capitalized value upfront.
+
+\textbf{Testable with Florida data}: The parcel data shows sales linked to exemption status. The 2$\times$2:
+
+\begin{center}
+\begin{tabular}{l|cc}
+ & Buyer claims & Buyer doesn't \\
+\hline
+Seller had exemption & Senior $\to$ Senior & Senior $\to$ Non-senior \\
+Seller didn't & Non-senior $\to$ Senior & Non-senior $\to$ Non-senior \\
+\end{tabular}
+\end{center}
+
+\textbf{What each cell reveals}:
+\begin{itemize}
+    \item \textit{Non-senior $\to$ Non-senior}: Baseline. No exemption on either side.
+    \item \textit{Non-senior $\to$ Senior}: Key test cell. Senior buyer has higher WTP due to future exemption. If price exceeds baseline, seller captures some of that surplus.
+    \item \textit{Senior $\to$ Senior}: Exemption continues. Price should reflect capitalized value---neither party gains nor loses from the exemption per se.
+    \item \textit{Senior $\to$ Non-senior}: Exemption disappears. Non-senior buyer has no reason to pay a premium. Price should revert to baseline.
+\end{itemize}
+
+The core comparison: \textit{Non-senior $\to$ Senior} vs.\ \textit{Non-senior $\to$ Non-senior}. Same seller type, different buyer type. If senior buyers pay more for similar properties, the exemption capitalizes into prices.
+
+Secondary comparison: \textit{Senior $\to$ Non-senior} vs.\ \textit{Senior $\to$ Senior}. Same seller type, different buyer type. If prices drop when selling to non-seniors, that's further evidence the market prices buyer-specific tax status.
+
+The test: compare prices for observationally similar properties by whether the buyer claims the exemption post-sale. If ``buyer claims'' transactions have higher prices, the exemption capitalizes into prices. If the premium is close to the PV of the exemption, capitalization is full and senior buyers gain nothing net.
+
+\textbf{What this requires}:
+\begin{itemize}
+    \item Property characteristics (sq ft, beds, baths, year built, location)
+    \item Sale price
+    \item Exemption status before and after sale (year after sale, presumably)
+\end{itemize}
+
+\textbf{What this does not require}: income data, migration data, policy variation.
+
+\textbf{Selection concern}: Seniors may buy systematically different houses. Controls help; within-property repeat-sales analysis would be cleaner (same house sells to senior, then later to non-senior, or vice versa).
+
+\textbf{Why this matters}: If the exemption fully capitalizes, the policy debate is misframed. Proposals to expand exemptions ``for seniors'' would primarily benefit current owners, not future senior buyers. The policy is a wealth transfer to incumbents, not a subsidy to a demographic group.
+
+\subsubsection{Two Identification Strategies}
+
+\textbf{Strategy 1: Hedonic cross-section.} Compare sale prices for observationally similar properties, by whether the buyer claims the exemption post-sale. Regression:
+\[
+\log(\text{price}_{it}) = \alpha + \beta \cdot \mathbf{1}[\text{buyer claims exemption}] + X_{it}\gamma + \delta_{\text{zip}} + \tau_t + \varepsilon_{it}
+\]
+where $X_{it}$ are property characteristics. The coefficient $\beta$ measures the price premium for senior-buyer transactions.
+
+\textit{Data requirements}: One year of sales plus exemption status the following year. More years provide power and allow year fixed effects.
+
+\textit{Identification concern}: Seniors may select into different houses. Observable controls help but unobservable preferences (single-story, accessibility features) could bias $\beta$ upward even absent capitalization.
+
+\textbf{Strategy 2: Within-property repeat sales.} Compare the same property when it sells to a senior vs.\ when it sells to a non-senior. Property fixed effects absorb all time-invariant characteristics.
+\[
+\log(\text{price}_{it}) = \alpha_i + \beta \cdot \mathbf{1}[\text{buyer claims exemption}] + \tau_t + \varepsilon_{it}
+\]
+
+\textit{Data requirements}: Multiple years of sales data, with enough turnover that some properties sell twice with variation in buyer type (e.g., non-senior $\to$ senior $\to$ non-senior).
+
+\textit{Advantage}: Eliminates selection on time-invariant unobservables. If a house sells for more when the buyer is a senior, that's direct evidence of capitalization.
+
+\textit{Disadvantage}: Smaller sample. Time-varying confounds (renovations, neighborhood changes) still possible.
+
+\subsubsection{Interpreting Results}
+
+\textbf{If $\hat{\beta} \approx$ PV of exemption (\$8--10k)}: Full capitalization. Senior buyers pay the exemption value upfront; they gain nothing net from the policy. The policy benefits incumbents and sellers.
+
+\textbf{If $\hat{\beta} \approx 0$}: No capitalization. Senior buyers capture the full exemption benefit. Either the market doesn't price buyer-specific tax status, or frictions prevent arbitrage.
+
+\textbf{If $0 < \hat{\beta} <$ PV}: Partial capitalization. Benefits split between buyers and sellers. This is the most likely outcome---markets are not perfectly frictionless, but differential WTP should show up somewhere.
+
+\subsubsection{The Demand Subsidy Critique}
+
+Strip away the framing: the income-capped senior exemption is a \textit{demand-side subsidy} for senior-suitable housing. Policymakers recognized the targeting problem (rich seniors don't need help) and added an income test. But demand subsidies in housing markets have a well-known problem: with inelastic supply, prices absorb the subsidy.
+
+The policy fails not because of poor targeting, but because targeting doesn't fix the incidence problem. The income test determines \textit{who receives the statutory benefit}. Capitalization determines \textit{who receives the economic benefit}. These can differ entirely.
+
+\textbf{Supply elasticity matters}: If housing supply is elastic, the demand subsidy could actually work---it would stimulate construction of senior-suitable housing rather than just bid up prices. The degree of capitalization should vary with local supply elasticity:
+\begin{itemize}
+    \item High elasticity (buildable land, permissive zoning): Prices rise less, seniors capture more of the exemption
+    \item Low elasticity (coastal constraints, restrictive zoning): Prices absorb more of the exemption, sellers capture it
+\end{itemize}
+
+\textbf{Testable if variation exists}: Florida has plausible variation in supply elasticity---coastal vs.\ interior counties, municipal zoning differences, Saiz (2010) MSA-level estimates. If the exemption is uniform, comparing capitalization rates across elastic vs.\ inelastic markets tests whether supply response mediates incidence.
+
+\subsubsection{Who Are the Obvious Winners?}
+
+The 2$\times$2 buyer/seller matrix above misses one category: \textbf{incumbents who bought before the exemption existed (or before it applied to them)}.
+
+Consider someone who bought their home before the exemption was enacted. When the policy passes, their home's value rises (to the extent the exemption capitalizes) but they paid the pre-exemption price. They capture the full capitalized value without paying for it. If they bought \textit{after} the policy existed---even if they weren't yet 65---the market would already price in the expected future benefit. The windfall only accrues to pre-policy owners.
+
+\textbf{Full beneficiary accounting}:
+\begin{enumerate}
+    \item \textit{Incumbent senior homeowners}: Win unambiguously. Home value rises; they didn't pay the premium.
+    \item \textit{Sellers to senior buyers}: Win. Capture some of the exemption via higher price.
+    \item \textit{Senior buyers}: Ambiguous. Gain the exemption, lose via higher purchase price. Net gain depends on capitalization rate.
+    \item \textit{Non-senior buyers in high-senior-demand areas}: Lose. Pay elevated prices without the offsetting exemption.
+\end{enumerate}
+
+If the goal is ``help seniors,'' the policy mostly helps seniors who \textit{already own homes}. If the goal is ``attract seniors,'' the policy is self-defeating: in-migrants pay the capitalized value upfront.
+
+\subsubsection{Creating Variation from Fixed Nominal Amounts}
+
+A core identification challenge: Florida's exemption may lack policy variation over time. But nominal exemptions that don't adjust can generate real variation:
+
+\textbf{Inflation erosion}: If the exemption amount is fixed in nominal terms, its real value declines over time. A \$25,000 exemption in 2005 is worth less in 2020 dollars. This creates within-state time-series variation in the real subsidy.
+
+\textbf{Cross-sectional COL differences}: A fixed nominal exemption has different real value in high- vs.\ low-cost counties. \$25,000 off assessed value matters more in a county with \$150k homes than one with \$500k homes.
+
+\textbf{Income cap erosion}: If the income cap (\$38,686) is fixed or adjusts slowly, inflation changes who qualifies. Real income growth pushes marginal seniors above the threshold, creating variation in the eligible population.
+
+\textbf{Assessment ratio variation}: If counties assess at different ratios to market value, the same nominal exemption translates to different effective tax savings.
+
+These aren't policy experiments, but they may generate enough variation for identification if the magnitudes are meaningful. Worth checking the statutory history for how (and whether) Florida adjusts these thresholds.
+
+\subsubsection{Connection to Literature}
+
+This relates to Coven et al.'s point about property tax capitalization and lifecycle housing allocation. They argue low property taxes (California) capitalize into high prices, benefiting incumbent owners and harming young buyers. The senior exemption is a micro version: a buyer-specific tax reduction that should capitalize into prices when seniors are marginal buyers.
+
+The contribution is documenting whether this actually happens for a targeted exemption---and if so, reframing the policy debate. ``Helping seniors'' becomes ``helping current owners at the expense of future seniors.''
+
+\section{Florida: Extreme Case Logic}
+
+Florida is the ``meme of all retirement states.'' If fiscal competition for seniors operates anywhere, it operates in Florida. This makes Florida a good single-state test: failure to find effects there is strong evidence against the fiscal competition story generally.
+
+\textbf{What Florida offers}:
+\begin{itemize}
+    \item Parcel-level exemption claims, 2002--present
+    \item Sales data linked to exemption status
+    \item Income-capped policy design (\$38k AGI cap, \$500/year)
+\end{itemize}
+
+\textbf{Limitations}:
+\begin{itemize}
+    \item Migration data is county-level (IRS SOI) or noisy (ACS)
+    \item No clean municipal-level migration flows by age
+    \item Need time series policy variation for identification
+\end{itemize}
+
+\textbf{Data status}: Requested Florida time series data on January 20, 2026. Expected response within 5 business days.
+
+\section{What's Missing?}
+
+\begin{itemize}
+    \item Florida time series data (requested Jan 20, 2026---expect $\sim$5 business days)
+    \item Tax variation to identify migration elasticities by income and by age
+\end{itemize}
+
+\section{Next Steps}
+
+\textbf{Primary path: Capitalization test} (requires less demanding data)
+\begin{enumerate}
+    \item Wait for Florida time series data (requested Jan 20, 2026)
+    \item Confirm data includes: parcel ID, sale price, sale date, property characteristics, exemption status by year
+    \item Run hedonic cross-section: compare prices by buyer exemption status, controlling for property characteristics and location
+    \item If sample permits: run within-property repeat-sales specification for cleaner identification
+    \item Interpret magnitude relative to PV of exemption ($\sim$\$8--10k)
+\end{enumerate}
+
+\textbf{Secondary path: Migration elasticities} (requires policy variation + income-by-age migration data)
+\begin{enumerate}
+    \item Check for policy variation (changes to income cap, exemption amount, eligibility rules) vs.\ just rate variation
+    \item If variation exists and appropriate migration data can be found: estimate elasticities by income bucket
+    \item This path is harder---may not be feasible with available data
+\end{enumerate}
+
+\appendix
+\section{Florida Homestead Exemption History}
+
+\begin{description}
+    \item[1934] First homestead exemption established at \$5,000.
+    \item[1980] Voters increased homestead exemption to \$25,000.
+    \item[1992 (Save Our Homes)] Voters approved 3\% annual cap on assessment increases for homestead properties.
+    \item[2008 (Amendment 1)] Added second \$25,000 homestead exemption (for value between \$50,000 and \$75,000), applicable to non-school taxes. Created ``Portability,'' allowing homeowners to transfer Save Our Homes savings (up to \$500,000) to a new Florida home. Added \$25,000 Tangible Personal Property exemption for business equipment.
+    \item[2020 (Amendment 5)] Extended portability period from two to three years.
+    \item[2023 (Live Local Act)] Created ``Missing Middle'' exemption for multifamily developments (75\% or 100\% exemptions for units rented to households at 80--120\% AMI).
+    \item[2024 (Amendment 5)] Approved by voters to index the second \$25,000 homestead exemption to inflation (CPI) annually, effective January 1, 2025.
+\end{description}
+
+\textbf{Implication for identification}: The 2024 amendment indexing to CPI eliminates inflation erosion as a source of variation going forward. Any strategy exploiting nominal-vs-real variation in exemption value must use pre-2025 data.
+
+\section{Local Variation in Senior Exemptions}
+
+The Additional Homestead Exemption for Persons 65 and Older is a \textit{local option}---municipalities and counties choose whether to adopt it and at what level. This creates substantial policy variation.
+
+\subsection{Intra-County Variation}
+
+Municipalities within the same county set different exemption levels for their portion of the property tax.
+
+\textbf{Palm Beach County example}:
+\begin{itemize}
+    \item County: Grants full \$50,000 exemption for county taxes
+    \item City of Boca Raton: Grants full \$50,000 for city taxes
+    \item Town of Jupiter: Does \textit{not} grant senior exemption for town taxes (\$0)
+    \item City of West Palm Beach: Grants full \$50,000 for city taxes
+\end{itemize}
+
+A qualifying senior in Jupiter receives the county exemption but not a municipal exemption; a senior in Boca Raton receives both.
+
+\subsection{Cross-County Variation}
+
+Rural and lower-tax-base counties frequently decline to adopt the exemption.
+
+\begin{itemize}
+    \item Miami-Dade County: Adopted both the \$50,000 exemption and the 25-year residency (100\% value) exemption
+    \item Baker County: Does not offer the additional senior exemption
+    \item Dixie County: Does not offer the additional senior exemption
+\end{itemize}
+
+\subsection{Timing Variation}
+
+When Florida increased the allowable maximum from \$25,000 to \$50,000 in 2006, local governments updated at different times.
+
+\textbf{St.\ Johns County}:
+\begin{itemize}
+    \item 2000: Adopted initial \$25,000 exemption (Ordinance 2000-11)
+    \item 2007: Increased to \$50,000 (Ordinance 2007-26)
+\end{itemize}
+
+\textbf{Hillsborough County}: Adopted \$50,000 limit early but has repeatedly declined to implement the 25-year residency option.
+
+\subsection{The 25-Year Residency Option}
+
+This local option grants 100\% exemption for homes under \$250,000 value to seniors with 25+ years of Florida residency. High fiscal cost leads to substantial adoption variation.
+
+\begin{itemize}
+    \item Duval County (Jacksonville): Adopted in 2022, effective 2023 tax year
+    \item Orange County: Declined; reviewed in 2023--2024, cited revenue loss
+    \item City of Tampa: Does not offer, despite Miami and Jacksonville adopting
+\end{itemize}
+
+\subsection{Summary of Variation (2024)}
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Jurisdiction & \$50k Senior Exemption & 25-Year/100\% Exemption \\
+\midrule
+Miami-Dade County & Yes & Yes \\
+Orange County & Yes & No \\
+Palm Beach County & Yes & No \\
+City of Jacksonville & Yes & Yes \\
+Town of Jupiter & No & No \\
+Baker County & No & No \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Implication for identification}: This variation enables within-Florida DiD designs. Compare price capitalization in adopting vs.\ non-adopting municipalities, or before/after adoption within municipalities. The staggered timing of \$25k$\to$\$50k updates and 25-year residency adoption provides event-study variation.
+
+\textbf{Sources}: Palm Beach County Property Appraiser; St.\ Johns County Ordinance Records; Jacksonville City Council Ordinance 2022-385-E; Florida Department of Revenue Local Official Exemption List.
+
+\end{document}
