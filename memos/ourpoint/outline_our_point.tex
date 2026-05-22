@@ -16,58 +16,21 @@
 
 \section*{Status Summary (January 2026)}
 
-\textcolor{red}{\textbf{Next step is thinking, not data collection.} Write down candidate theories and evaluate which are testable:
-\begin{itemize}
-    \item \textbf{Fiscal competition}: Localities compete for mobile seniors. Predicts more generous exemptions where senior migration is elastic.
-    \item \textbf{Political capture}: Seniors vote and lobby. Predicts richer seniors get more (better organized). Income caps are inconsistent with this.
-    \item \textbf{Anti-displacement}: Exemptions protect vulnerable incumbents, not attract new seniors. Predicts caps and tenure requirements (e.g., Florida's 25-year residency option).
-\end{itemize}
-The two-type observation (uncapped vs.\ capped) may be the seed: \textit{uncapped = attract}, \textit{capped = protect}. Test: Do uncapped jurisdictions see more senior in-migration? Do capped jurisdictions see more senior stability?}
-
-\vspace{1em}
+\textbf{Research question}: Does Florida's senior property tax exemption capitalize into home prices? If so, who captures the benefit---senior buyers or sellers?
 
 \textbf{Data}: Florida parcel-level exemption claims and sales, 2002--present. Requested time series on Jan 20, 2026. Local policy variation exists within Florida (see Appendix B)---municipalities adopt the senior exemption at different times and levels.
 
 \textbf{Key facts}:
 \begin{itemize}
-    \item Florida's Additional Senior Exemption requires AGI $\leq$ \$38,686 and saves $\sim$\$500/year
-    \item This is small: $\sim$0.35\% of county levy. Rate responses to exemption adoption would be hard to detect.
-    \item Two types of exemptions exist nationally: uncapped (Texas, \$2k+/year) vs.\ income-capped (Florida). A paper needs a theory for why both exist.
+    \item Florida's Additional Senior Exemption requires AGI $\leq$ \$38,686 and saves $\sim$\$500/year (PV $\approx$ \$8--10k)
+    \item Local governments choose whether to adopt and at what level, creating within-state policy variation
 \end{itemize}
 
-\textbf{Two potential questions}:
-
-\begin{enumerate}
-    \item \textbf{Policy design} (Section~\ref{sec:bestframing}): Why do some states cap and others don't? Florida's low cap excludes most seniors---surprising if rich seniors are better organized. The cap is evidence for smart targeting (subsidize marginal migrants) or against pure capture. \textit{Cross-state comparison; doesn't require Florida microdata.}
-
-    \item \textbf{Capitalization/incidence} (Section~\ref{sec:capitalization}): Does the exemption capitalize into prices? If senior buyers pay more for similar houses, sellers capture part of the exemption. \textit{Uses Florida parcel data.}
-\end{enumerate}
-
-\textbf{Identification for Question 2}: The within-Florida local variation (Appendix B) is the source of policy variation needed to cleanly identify capitalization. Municipalities adopt the senior exemption at different times and levels. This enables DiD: compare price changes in adopting vs.\ non-adopting jurisdictions, or before/after adoption within municipalities.
-
-\textbf{Honest assessment}: Question 1 is more interesting but requires cross-state data collection. Question 2 is tractable with Florida data + local variation, but the finding (``demand subsidies capitalize'') is not surprising. The question is whether documenting this for a targeted senior exemption adds enough to justify the paper.
+\textbf{Identification}: The within-Florida local variation (Appendix B) enables DiD: compare price changes in adopting vs.\ non-adopting jurisdictions, or before/after adoption within municipalities. Hedonic cross-section comparing prices by buyer exemption status provides a complementary test.
 
 \vspace{1em}
 \hrule
 \vspace{1em}
-
-\section{The Two Types of Exemptions}
-
-Senior property tax exemptions come in two flavors:
-
-\textbf{Uncapped}: All seniors qualify regardless of income. Texas (\$2,140/year in Harris County), parts of Georgia. Large dollar values.
-
-\textbf{Circuit-breaker / Income-capped}: Only low-income seniors qualify. Florida (\$38k cap, \$500/year), many other states. Smaller dollar values.
-
-Any paper about senior exemptions needs a theory for why both exist.
-
-\textbf{Candidate theories}:
-\begin{itemize}
-    \item Uncapped = fiscal competition (Tiebout story fits) OR interest group capture (seniors lobby effectively)
-    \item Circuit-breaker = smart targeting (see ``Best Framing'') OR constituent service / anti-displacement
-\end{itemize}
-
-The income cap could be revealed preference against fiscal competition---or it could be efficient targeting of price-sensitive migrants. Either way, documenting interest group success is a valid paper (Bombardini \& Trebbi, regulatory capture literature), but requires showing the mechanism: lobbying expenditures, campaign contributions, legislative voting records.
 
 \section{The Gap}
 
@@ -77,36 +40,16 @@ Munoz et al.\ answer: ``What happens when seniors arrive?'' (Employment multipli
 
 Coven, Golder, Gupta, and Ndiaye (2025) answer: ``How do property taxes affect lifecycle housing allocation?'' Property taxes are ``embedded leverage''---higher taxes capitalize into lower prices, benefiting credit-constrained young households. Low property tax regimes (California) encourage senior lock-in and price out young families.
 
-\section{Best Framing}
-\label{sec:bestframing}
+Conway and Houtenville (1998) answer: ``Do taxes and spending drive elderly migration?'' Property taxes: yes. Income taxes: no. States with heavy property tax reliance see higher elderly out-migration. But income tax exemptions for pension income ``have no bearing on either in-migration or out-migration.'' The asymmetry matters: property taxes may push seniors out, but low property taxes alone don't pull seniors in.
 
-\textbf{Why this matters (magnitudes)}: Senior property tax exemptions are large and widespread. Texas's 2025 homestead exemption increase for 65+ homeowners costs approximately \$600 million annually. In Harris County, a senior turning 65 saves \$2,140/year; in Cook County, the senior freeze delivers \$3,510/year for long-tenure homeowners. Banzhaf et al.\ estimate Cobb County's 100\% school tax exemption increased the senior homeowner population by 32--54\%. On the income side, 41 states exempt Social Security entirely, and about 7\% of state income tax revenue goes to senior exemptions. These are first-order fiscal policies.
+Conway and Rork (2012) extend this with panel data across four censuses. They find no credible evidence that income tax breaks or estate/inheritance taxes affect elderly migration. Cross-sectional correlations disappear with state fixed effects. Their focus is income taxes---larger dollar amounts than Florida's property tax exemption---making the null migration result striking.
 
-\textbf{The puzzle}: Budget constraints mean some cap is expected. But the \textit{level} of the cap matters. Florida's \$38k threshold excludes most homeowning seniors---median income for 65+ households is around \$50k. If the rich are better organized (Olson), you'd expect the cap set high enough that most seniors qualify, or no cap at all. A low cap that excludes the majority is surprising from a pure capture perspective.
-
-\textbf{The resolution}: The income cap is evidence \textit{for} smart targeting, \textit{against} pure political economy.
-
-\begin{itemize}
-    \item Wealthy seniors are inframarginal---they move to Florida regardless (weather, amenities, no state income tax)
-    \item Low-income seniors are marginal---\$500/year might tip the decision
-    \item Low-income seniors are \textit{still fiscally positive}: they pay property tax on their home, don't send kids to school
-    \item Therefore: subsidize the marginal senior who's still a net contributor
-\end{itemize}
-
-\textbf{What the paper would do}:
-\begin{enumerate}
-    \item Document the income cap design across states (who caps, who doesn't)
-    \item Note a low cap is inconsistent with pure capture (if rich seniors are better organized, cap should be set high)
-    \item Test if low-income seniors are more elastic (the targeting story requires this)
-    \item Verify low-income seniors are still fiscally positive at the local level
-\end{enumerate}
-
-On political data: you might have more than you think. AARP lobbying, state legislative voting records, ballot initiative data. Worth checking before assuming it's unavailable.
-
-\subsection{Alternative Framing: Capitalization and Incidence}
+\section{Capitalization and Incidence}
 \label{sec:capitalization}
 
-\subsubsection{Toy Model of Incidence}
+\textbf{Why this matters (magnitudes)}: Senior property tax exemptions are large and widespread. Texas's 2025 homestead exemption increase for 65+ homeowners costs approximately \$600 million annually. In Harris County, a senior turning 65 saves \$2,140/year; in Cook County, the senior freeze delivers \$3,510/year for long-tenure homeowners. Banzhaf et al.\ estimate Cobb County's 100\% school tax exemption increased the senior homeowner population by 32--54\%. These are first-order fiscal policies.
+
+\subsection{Toy Model of Incidence}
 
 \textbf{Setup}: A continuum of houses (measure $H$) and buyers. Seniors have measure $m_S$, non-seniors have measure $m_N$, with $m_S + m_N > H$ (more buyers than houses). Each buyer draws a private valuation $v$ from distribution $F(\cdot)$ with density $f(\cdot)$. Seniors receive an exemption worth $E$ in present value.
 
@@ -151,8 +94,6 @@ With uniform valuations ($f$ constant), this simplifies to:
 \vspace{1em}
 \hrule
 \vspace{1em}
-
-The ``smart targeting'' story above requires testing migration elasticities by income---data that may not exist at the right granularity. A cleaner approach: ask who actually benefits from the exemption.
 
 \textbf{The frame}: The senior property tax exemption is a \textit{demand-side subsidy}. It raises senior buyers' willingness-to-pay by the present value of future tax savings (\$500/year $\times$ $\sim$20 years $\approx$ \$8--10k). Standard subsidy incidence logic applies: prices rise, with the split between buyer and seller depending on relative elasticities.
 
@@ -213,7 +154,7 @@ The test: compare prices for observationally similar properties by whether the b
 
 \textbf{Why this matters}: If the exemption fully capitalizes, the policy debate is misframed. Proposals to expand exemptions ``for seniors'' would primarily benefit current owners, not future senior buyers. The policy is a wealth transfer to incumbents, not a subsidy to a demographic group.
 
-\subsubsection{Two Identification Strategies}
+\subsection{Two Identification Strategies}
 
 \textbf{Strategy 1: Hedonic cross-section.} Compare sale prices for observationally similar properties, by whether the buyer claims the exemption post-sale. Regression:
 \[
@@ -236,7 +177,7 @@ where $X_{it}$ are property characteristics. The coefficient $\beta$ measures th
 
 \textit{Disadvantage}: Smaller sample. Time-varying confounds (renovations, neighborhood changes) still possible.
 
-\subsubsection{Interpreting Results}
+\subsection{Interpreting Results}
 
 \textbf{If $\hat{\beta} \approx$ PV of exemption (\$8--10k)}: Full capitalization. Senior buyers pay the exemption value upfront; they gain nothing net from the policy. The policy benefits incumbents and sellers.
 
@@ -244,7 +185,7 @@ where $X_{it}$ are property characteristics. The coefficient $\beta$ measures th
 
 \textbf{If $0 < \hat{\beta} <$ PV}: Partial capitalization. Benefits split between buyers and sellers. This is the most likely outcome---markets are not perfectly frictionless, but differential WTP should show up somewhere.
 
-\subsubsection{The Demand Subsidy Critique}
+\subsection{The Demand Subsidy Critique}
 
 Strip away the framing: the income-capped senior exemption is a \textit{demand-side subsidy} for senior-suitable housing. Policymakers recognized the targeting problem (rich seniors don't need help) and added an income test. But demand subsidies in housing markets have a well-known problem: with inelastic supply, prices absorb the subsidy.
 
@@ -258,7 +199,7 @@ The policy fails not because of poor targeting, but because targeting doesn't fi
 
 \textbf{Testable if variation exists}: Florida has plausible variation in supply elasticity---coastal vs.\ interior counties, municipal zoning differences, Saiz (2010) MSA-level estimates. If the exemption is uniform, comparing capitalization rates across elastic vs.\ inelastic markets tests whether supply response mediates incidence.
 
-\subsubsection{Who Are the Obvious Winners?}
+\subsection{Who Are the Obvious Winners?}
 
 The 2$\times$2 buyer/seller matrix above misses one category: \textbf{incumbents who bought before the exemption existed (or before it applied to them)}.
 
@@ -274,7 +215,7 @@ Consider someone who bought their home before the exemption was enacted. When th
 
 If the goal is ``help seniors,'' the policy mostly helps seniors who \textit{already own homes}. If the goal is ``attract seniors,'' the policy is self-defeating: in-migrants pay the capitalized value upfront.
 
-\subsubsection{Creating Variation from Fixed Nominal Amounts}
+\subsection{Creating Variation from Fixed Nominal Amounts}
 
 A core identification challenge: Florida's exemption may lack policy variation over time. But nominal exemptions that don't adjust can generate real variation:
 
@@ -288,55 +229,39 @@ A core identification challenge: Florida's exemption may lack policy variation o
 
 These aren't policy experiments, but they may generate enough variation for identification if the magnitudes are meaningful. Worth checking the statutory history for how (and whether) Florida adjusts these thresholds.
 
-\subsubsection{Connection to Literature}
+\subsection{Connection to Literature}
 
 This relates to Coven et al.'s point about property tax capitalization and lifecycle housing allocation. They argue low property taxes (California) capitalize into high prices, benefiting incumbent owners and harming young buyers. The senior exemption is a micro version: a buyer-specific tax reduction that should capitalize into prices when seniors are marginal buyers.
 
 The contribution is documenting whether this actually happens for a targeted exemption---and if so, reframing the policy debate. ``Helping seniors'' becomes ``helping current owners at the expense of future seniors.''
 
-\section{Florida: Extreme Case Logic}
+\section{Why Florida?}
 
-Florida is the ``meme of all retirement states.'' If fiscal competition for seniors operates anywhere, it operates in Florida. This makes Florida a good single-state test: failure to find effects there is strong evidence against the fiscal competition story generally.
+Florida is the canonical retirement state. If senior property tax exemptions capitalize anywhere, they capitalize in Florida---where senior demand is high and the market is thick with senior buyers.
 
 \textbf{What Florida offers}:
 \begin{itemize}
     \item Parcel-level exemption claims, 2002--present
     \item Sales data linked to exemption status
-    \item Income-capped policy design (\$38k AGI cap, \$500/year)
+    \item Within-state policy variation: municipalities adopt at different times and levels (see Appendix B)
 \end{itemize}
 
-\textbf{Limitations}:
-\begin{itemize}
-    \item Migration data is county-level (IRS SOI) or noisy (ACS)
-    \item No clean municipal-level migration flows by age
-    \item Need time series policy variation for identification
-\end{itemize}
-
-\textbf{Data status}: Requested Florida time series data on January 20, 2026. Expected response within 5 business days.
+\textbf{Data status}: Requested Florida time series data on January 20, 2026.
 
 \section{What's Missing?}
 
 \begin{itemize}
     \item Florida time series data (requested Jan 20, 2026---expect $\sim$5 business days)
-    \item Tax variation to identify migration elasticities by income and by age
 \end{itemize}
 
 \section{Next Steps}
 
-\textbf{Primary path: Capitalization test} (requires less demanding data)
 \begin{enumerate}
     \item Wait for Florida time series data (requested Jan 20, 2026)
     \item Confirm data includes: parcel ID, sale price, sale date, property characteristics, exemption status by year
     \item Run hedonic cross-section: compare prices by buyer exemption status, controlling for property characteristics and location
     \item If sample permits: run within-property repeat-sales specification for cleaner identification
     \item Interpret magnitude relative to PV of exemption ($\sim$\$8--10k)
-\end{enumerate}
-
-\textbf{Secondary path: Migration elasticities} (requires policy variation + income-by-age migration data)
-\begin{enumerate}
-    \item Check for policy variation (changes to income cap, exemption amount, eligibility rules) vs.\ just rate variation
-    \item If variation exists and appropriate migration data can be found: estimate elasticities by income bucket
-    \item This path is harder---may not be feasible with available data
 \end{enumerate}
 
 \appendix

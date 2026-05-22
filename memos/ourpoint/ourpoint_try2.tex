@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{xcolor}
+
+\onehalfspacing
+\title{Who Pays for Senior Tax Exemptions?\\[0.5em]\large Brainstorming Document}
+\author{Jeffrey Ohl}
+\date{January 2026}
+
+\begin{document}
+\maketitle
+
+\section*{The Idea}
+
+Conway and Rork (2012) show state income tax exemptions for seniors don't attract migrants. We ask: who pays for them anyway?
+
+If exemptions don't attract seniors but do cost revenue, the burden falls entirely on existing residents---through higher taxes or reduced services. The fiscal competition justification fails, but the fiscal cost remains.
+
+\textbf{Variation}: Use Conway's policy coding (state-level changes in senior income tax treatment).
+
+\textbf{New LHS}: Budget outcomes---tax rates on other groups, spending levels, budget composition.
+
+\subsection*{What's the Contribution?}
+
+After Conway, the reader's prior should already be ``exemptions cost money and someone pays.'' That's a logical implication of the null migration result. So the contribution isn't showing that \textit{someone} pays---it's showing \textit{who} pays and \textit{how much}.
+
+The interesting findings would be:
+\begin{itemize}
+    \item \textbf{Which group loses}: Education? Low-income taxpayers (via sales tax)? Working-age income taxpayers?
+    \item \textbf{Magnitude}: Is it dollar-for-dollar pass-through, or do states absorb part of the cost through other channels?
+    \item \textbf{Heterogeneity}: Do states with different political compositions adjust differently?
+\end{itemize}
+
+A finding like ``senior income tax exemptions reduce K-12 spending by \$X per dollar of exemption'' is specific and policy-relevant. A finding like ``exemptions are offset by higher taxes somewhere'' is less interesting---we already expected that.
+
+\section{Magnitude Check: Are We Powered?}
+
+\subsection{How Big Are Senior Income Tax Exemptions?}
+
+\textbf{What we think we know} (needs verification):
+\begin{itemize}
+    \item 41 states exempt Social Security benefits entirely
+    \item $\sim$7\% of state income tax revenue goes to senior exemptions (source?)
+    \item Some states also exempt pension income, IRA distributions, etc.
+\end{itemize}
+
+\textbf{BOTEC}:
+\begin{itemize}
+    \item Total state income tax revenue (2023): $\sim$\$500 billion
+    \item If 7\% goes to senior exemptions: $\sim$\$35 billion nationally
+    \item Average state: $\sim$\$700 million/year
+    \item But highly variable---states with no income tax contribute zero; high-tax states contribute more
+\end{itemize}
+
+\textbf{As share of state budgets}:
+\begin{itemize}
+    \item Average state general fund: $\sim$\$20--30 billion
+    \item \$700M / \$25B = 2.8\% of general fund
+    \item Not trivial, but not 10\%
+\end{itemize}
+
+\textcolor{red}{\textbf{TODO}: Verify these numbers. Find actual estimates of senior income tax expenditures by state.}
+
+\subsection{Power Concerns}
+
+If senior exemptions are 2--3\% of state budgets, can we detect offsetting changes in taxes or spending?
+
+\textbf{Optimistic case}: A state expanding senior exemptions by 1pp of budget should show up as either:
+\begin{itemize}
+    \item 1pp higher taxes elsewhere, or
+    \item 1pp lower spending somewhere, or
+    \item Some combination
+\end{itemize}
+
+\textbf{Pessimistic case}: State budgets are noisy. Many things change simultaneously. A 1--2\% shift may be hard to detect, especially with limited policy variation (how many states changed senior exemptions in Conway's sample?).
+
+\textbf{What helps}:
+\begin{itemize}
+    \item Panel data over multiple decades (more observations)
+    \item Sharp policy changes (discrete events, not gradual drift)
+    \item Pre-trends analysis (did budgets diverge before the policy change?)
+\end{itemize}
+
+\section{Framing Different Findings}
+
+\subsection{Finding: Self-Financing (Null on Budget)}
+
+\textit{Senior exemptions don't change taxes or spending levels.}
+
+\textbf{Interpretation}: States absorb the cost through:
+\begin{itemize}
+    \item Revenue growth (economy expands, new revenues offset exemption cost)
+    \item Efficiency gains (cut waste rather than services)
+    \item Deficit financing / rainy day fund drawdowns
+\end{itemize}
+
+\textbf{Policy implication}: Exemptions are ``free'' in equilibrium---no visible losers.
+
+\textbf{Problem with this finding}: Hard to publish a null. Also, ``absorbed through revenue growth'' is unsatisfying---the counterfactual is that revenue growth could have funded something else.
+
+\subsection{Finding: Education Spending Falls}
+
+\textit{States that expand senior exemptions cut education spending.}
+
+\textbf{Interpretation}: Intergenerational conflict. Seniors vote for tax breaks for themselves, financed by reduced investment in children.
+
+\textbf{Why education?}
+\begin{itemize}
+    \item Largest discretionary category in most state budgets
+    \item Seniors don't directly benefit
+    \item Politically easier to cut than Medicaid (federal matching) or public safety
+\end{itemize}
+
+\textbf{Policy implication}: Senior exemptions have hidden costs borne by future generations.
+
+\textbf{Literature connection}: ``Gray peril'' hypothesis---aging populations underinvest in education. This would be causal evidence.
+
+\subsection{Finding: Other Taxes Rise}
+
+\textit{States that expand senior income tax exemptions raise property taxes, sales taxes, or income taxes on non-seniors.}
+
+\textbf{Interpretation}: Tax shifting. The exemption doesn't reduce total tax burden; it shifts who pays.
+
+\textbf{Which taxes?}
+\begin{itemize}
+    \item Property taxes: States could reduce aid to localities, forcing property tax increases
+    \item Sales taxes: Regressive; burden falls on low-income households
+    \item Income taxes on working-age: Direct substitution within same tax base
+\end{itemize}
+
+\textbf{Policy implication}: Senior exemptions are a transfer from [X] to seniors, not a tax cut.
+
+\subsection{Finding: Nothing Detectable (True Null)}
+
+\textit{No measurable effect on any budget category.}
+
+\textbf{Interpretation options}:
+\begin{itemize}
+    \item Effects too small / diffuse to detect (power problem)
+    \item Effects spread across many categories (no single category moves enough)
+    \item States adjust on margins we don't observe (hiring freezes, deferred maintenance)
+\end{itemize}
+
+\textbf{What to do}: Report confidence intervals. ``We can rule out effects larger than X\% of spending.''
+
+\section{Identification Concerns}
+
+\textbf{Endogeneity}: States don't randomly adopt senior exemptions. They adopt when:
+\begin{itemize}
+    \item Senior population is large/growing (political pressure)
+    \item Budgets are flush (can afford it)
+    \item Competing with neighbors for retirees
+\end{itemize}
+
+These confounders correlate with budget outcomes directly.
+
+\textbf{Conway's approach}: State fixed effects + time fixed effects. Identifies off within-state changes over time. But still vulnerable to time-varying confounders (states adopt exemptions during booms, then cut spending during busts---but the bust caused both).
+
+\textbf{Possible improvements}:
+\begin{itemize}
+    \item Event study with pre-trends (did spending already diverge before adoption?)
+    \item Instrument? (Hard to think of one)
+    \item Synthetic control for individual large policy changes
+\end{itemize}
+
+\section{Data Requirements}
+
+\textbf{Policy variation}: Need Conway's coding of state senior income tax treatment, or reconstruct it.
+\begin{itemize}
+    \item Social Security exemption (full, partial, none)
+    \item Pension income exemption
+    \item Other senior-specific provisions
+    \item Timing of changes
+\end{itemize}
+
+\textbf{Budget data}: Census of Governments / Annual Survey of State and Local Government Finances
+\begin{itemize}
+    \item State tax revenue by source (income, sales, property)
+    \item State spending by category (education, health, infrastructure)
+    \item State aid to local governments
+\end{itemize}
+
+\textbf{Controls}:
+\begin{itemize}
+    \item Demographics (age structure, income)
+    \item Economic conditions (unemployment, GDP growth)
+    \item Political variables (governor party, legislature composition)
+\end{itemize}
+
+\section{Next Steps}
+
+\begin{enumerate}
+    \item \textbf{Verify magnitudes}: Find actual estimates of senior income tax expenditures by state. Is this 2\% of budgets or 5\%?
+    \item \textbf{Get Conway's data}: Check if policy coding is available in appendix/replication files. If not, reconstruct from Tax Foundation or CCH state tax guides.
+    \item \textbf{Count policy changes}: How many states changed senior income tax treatment in the relevant period? Is there enough variation?
+    \item \textbf{Preliminary budget analysis}: Do simple pre/post comparisons for a few large policy changes to see if anything moves.
+\end{enumerate}
+
+\section{Honest Assessment}
+
+This is a harder identification problem than the Florida capitalization question. State budgets are noisy, policy changes are endogenous, and the magnitude may be too small to detect.
+
+But the question is more interesting: ``Who pays for senior tax breaks?'' has broader policy relevance than ``Do property tax exemptions capitalize?''
+
+The Conway null on migration is the setup. If exemptions don't attract seniors, they're pure transfers---and documenting who loses is valuable.
+
+\end{document}
